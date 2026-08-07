@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="軍資金を作るへのご連絡、掲載情報の修正依頼、広告に関するお問い合わせはこちら。">
+  <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="お問い合わせ｜軍資金を作る">
+  <meta property="og:description" content="掲載情報の修正、リンク切れ、広告、その他の連絡文を作れます。">
+  <meta property="og:url" content="https://dokechi.github.io/gunshikin/contact.html">
+  <link rel="canonical" href="https://dokechi.github.io/gunshikin/contact.html">
+  <title>お問い合わせ｜軍資金を作る</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2ed;
+      --surface: #fbfbf7;
+      --ink: #151512;
+      --muted: #66665e;
+      --line: #c9c9bf;
+      --accent: #e84f30;
+      --danger: #a52b1c;
+      --radius: 12px;
+      --shadow: 0 16px 38px rgb(59 53 42 / 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100dvh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(118deg, transparent 0 67%, rgb(232 79 48 / 0.045) 67% 100%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      font-synthesis: none;
+    }
+
+    a { color: inherit; }
+
+    button,
+    input,
+    textarea { font: inherit; }
+
+    input,
+    textarea {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="url"],
+    textarea {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .site-header {
+      min-height: 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      width: min(100% - 24px, 1240px);
+      min-height: 56px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .header-status {
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .page-hero {
+      width: min(100% - 24px, 1240px);
+      min-height: calc(100dvh - 56px);
+      margin-inline: auto;
+      padding: clamp(32px, 6vh, 58px) 0 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 26px;
+    }
+
+    .hero-label {
+      margin: 0 0 13px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 10vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 1.02;
+    }
+
+    h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    h1 span:last-child { color: var(--accent); }
+
+    .hero-lead {
+      max-width: 30em;
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+    }
+
+    .button,
+    .hero-action {
+      min-height: 48px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform 120ms ease, background-color 120ms ease;
+    }
+
+    .hero-action { margin-top: 22px; }
+
+    .button:active,
+    .hero-action:active { transform: translateY(1px); }
+
+    .button--secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .state-board {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .state-board__title {
+      margin: 0 0 20px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+    }
+
+    .state-board dl { margin: 0; }
+
+    .state-board dl > div {
+      padding: 15px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .state-board dl > div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .state-board dt {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .state-board dd {
+      margin: 0;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .section {
+      padding: 64px 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section--surface { background: var(--surface); }
+
+    .section__inner {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    h2 {
+      max-width: 17em;
+      margin: 0;
+      font-size: clamp(28px, 8.5vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.065em;
+      line-height: 1.08;
+      word-break: auto-phrase;
+      text-wrap: balance;
+    }
+
+    .section-lead {
+      max-width: 46em;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.85;
+    }
+
+    .category-list {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .category-button {
+      min-height: 58px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .category-button[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #151512;
+    }
+
+    .builder {
+      margin-top: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .builder__status {
+      margin: 0 0 22px;
+      padding: 13px 14px;
+      border-left: 5px solid var(--accent);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field + .field { margin-top: 18px; }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .field small {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    input,
+    textarea {
+      min-height: 48px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    input::placeholder,
+    textarea::placeholder { color: var(--muted); opacity: 1; }
+
+    .error {
+      min-height: 1.5em;
+      margin: 8px 0 0;
+      color: var(--danger);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .builder__actions {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .result[hidden] { display: none; }
+
+    .result h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .result textarea {
+      margin-top: 12px;
+      min-height: 230px;
+      background: var(--surface);
+    }
+
+    .copy-status {
+      min-height: 1.5em;
+      margin: 9px 0 0;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .no-script {
+      margin: 18px 0 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .help-grid {
+      margin-top: 30px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .help-item {
+      min-height: 136px;
+      padding: 19px;
+      border-top: 5px solid var(--accent);
+      background: var(--surface);
+    }
+
+    .help-item strong {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .help-item h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.4;
+    }
+
+    .help-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .pull-word {
+      margin: 30px 0 0;
+      color: var(--accent);
+      font-size: clamp(82px, 29vw, 150px);
+      font-weight: 900;
+      letter-spacing: -0.11em;
+      line-height: 0.8;
+    }
+
+    .do-not-send {
+      margin: 32px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      list-style: none;
+    }
+
+    .do-not-send li {
+      min-height: 74px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .notice {
+      margin-top: 30px;
+      padding: 22px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .notice h3 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .notice p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .updated {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .site-footer {
+      padding: 28px 12px max(32px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer__inner {
+      width: min(100%, 980px);
+      margin-inline: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .site-header,
+      .site-header__inner { min-height: 68px; }
+
+      .site-header__inner,
+      .page-hero { width: min(100% - 48px, 1240px); }
+
+      .page-hero {
+        min-height: calc(100dvh - 68px);
+        padding-block: 52px;
+      }
+
+      h1 { font-size: clamp(50px, 6vw, 66px); }
+
+      .hero-lead { font-size: 16px; }
+
+      .state-board { max-width: 560px; }
+
+      .section { padding: 96px 24px; }
+
+      .category-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+      .builder { padding: 28px; }
+
+      .help-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .do-not-send { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 960px) {
+      .page-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+        align-items: center;
+        gap: clamp(48px, 7vw, 92px);
+      }
+
+      h1 { font-size: clamp(50px, 4.7vw, 64px); }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171714;
+        --surface: #22221e;
+        --ink: #f2f2ed;
+        --muted: #aaa99d;
+        --line: #494940;
+        --accent: #ff6849;
+        --danger: #ff8a72;
+        --shadow: 0 18px 42px rgb(5 5 4 / 0.3);
+      }
+
+      body {
+        background:
+          linear-gradient(118deg, transparent 0 67%, rgb(255 104 73 / 0.05) 67% 100%),
+          var(--bg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button,
+      .hero-action { transition: none; }
+    }
+
+    @media (forced-colors: active) {
+      .header-status,
+      .state-board,
+      .category-button,
+      .builder,
+      input,
+      textarea,
+      .do-not-send li,
+      .notice { border: 1px solid CanvasText; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://dokechi.github.io/gunshikin/contact.html#webpage",
+        "url": "https://dokechi.github.io/gunshikin/contact.html",
+        "name": "お問い合わせ｜軍資金を作る",
+        "description": "軍資金を作るへのご連絡、掲載情報の修正依頼、広告に関するお問い合わせはこちら。",
+        "inLanguage": "ja",
+        "breadcrumb": { "@id": "https://dokechi.github.io/gunshikin/contact.html#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dokechi.github.io/gunshikin/contact.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://dokechi.github.io/gunshikin/" },
+          { "@type": "ListItem", "position": 2, "name": "お問い合わせ" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Temporary public preview. The inquiry recipient and submission endpoint are not configured. -->
+  <!-- ZOROYA:HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
+      <span class="header-status">公開プレビュー</span>
+    </div>
+  </header>
+  <!-- /ZOROYA:HEADER -->
+
+  <!-- ZOROYA:MAIN -->
+  <main>
+    <section class="page-hero" aria-labelledby="hero-title">
+      <div>
+        <p class="hero-label">お問い合わせ</p>
+        <h1 id="hero-title">
+          <span>まず、用件を</span>
+          <span>ひとつ選ぶ。</span>
+        </h1>
+        <p class="hero-lead">情報修正、リンク切れ、広告、その他。連絡文だけ先に作れます。</p>
+        <a class="hero-action" href="#builder">連絡文を作る</a>
+      </div>
+      <aside class="state-board" aria-label="現在の受付状態">
+        <p class="state-board__title">現在の受付</p>
+        <dl>
+          <div><dt>正式な送信先</dt><dd>準備中</dd></div>
+          <div><dt>この画面から送信</dt><dd>されません</dd></div>
+          <div><dt>氏名・メール入力</dt><dd>不要</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section section--surface" id="builder" aria-labelledby="builder-title">
+      <div class="section__inner">
+        <h2 id="builder-title">掲載情報について連絡する。</h2>
+        <p class="section-lead">用件を選び、対象ページと伝えたい内容を入力してください。端末内で、コピーできる連絡文を作ります。</p>
+
+        <!-- ZOROYA:CONTACTFORM -->
+        <div class="category-list" role="group" aria-label="問い合わせの種類">
+          <button class="category-button" type="button" aria-pressed="true" data-category="掲載情報の修正">掲載情報の修正</button>
+          <button class="category-button" type="button" aria-pressed="false" data-category="リンク切れ">リンク切れ</button>
+          <button class="category-button" type="button" aria-pressed="false" data-category="広告について">広告について</button>
+          <button class="category-button" type="button" aria-pressed="false" data-category="その他">その他</button>
+        </div>
+
+        <form class="builder" id="contact-builder" novalidate>
+          <p class="builder__status"><strong>現在は送信されません。</strong><br>入力内容はサーバーへ送らず、このブラウザ内で連絡文を整えるためだけに使います。</p>
+
+          <div class="field">
+            <label for="page-url">対象ページのURL</label>
+            <input id="page-url" name="page-url" type="url" inputmode="url" autocomplete="url" placeholder="https://dokechi.github.io/gunshikin/">
+            <small>分かる場合だけで大丈夫です。</small>
+          </div>
+
+          <div class="field">
+            <label for="message">伝えたい内容</label>
+            <textarea id="message" name="message" required aria-describedby="message-help form-error" placeholder="例：○○のリンクが開きません。2026年8月8日に確認しました。"></textarea>
+            <small id="message-help">どの部分を、どう直すとよいかを短く書いてください。</small>
+          </div>
+
+          <p class="error" id="form-error" role="alert" aria-live="polite"></p>
+
+          <div class="builder__actions">
+            <button class="button" type="submit">連絡文を作る</button>
+            <button class="button button--secondary" type="reset">入力を消す</button>
+          </div>
+
+          <div class="result" id="result" hidden>
+            <h3>コピー用の連絡文</h3>
+            <textarea id="result-text" readonly aria-label="作成した連絡文"></textarea>
+            <div class="builder__actions">
+              <button class="button" id="copy-button" type="button">文章をコピー</button>
+            </div>
+            <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+        <noscript><p class="no-script">連絡文の作成にはJavaScriptが必要です。JavaScriptを有効にすると、このページ内だけで文章を整えられます。</p></noscript>
+        <!-- /ZOROYA:CONTACTFORM -->
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="help-title">
+      <div class="section__inner">
+        <h2 id="help-title">あると、確認しやすい情報。</h2>
+        <div class="help-grid">
+          <article class="help-item">
+            <strong>場所</strong>
+            <h3>対象ページと、該当箇所。</h3>
+            <p>ページのURL、見出し、ボタン名などがあると場所を特定しやすくなります。</p>
+          </article>
+          <article class="help-item">
+            <strong>内容</strong>
+            <h3>現在と、正しい内容。</h3>
+            <p>いまの表示と、直したい表示を分けて書くと確認が早くなります。</p>
+          </article>
+          <article class="help-item">
+            <strong>根拠</strong>
+            <h3>確認できる公式ページ。</h3>
+            <p>料金や条件の修正では、公式URLや資料名があると判断しやすくなります。</p>
+          </article>
+          <article class="help-item">
+            <strong>日付</strong>
+            <h3>確認した日。</h3>
+            <p>サービス条件は変わります。いつ確認した情報かも添えてください。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="secret-title">
+      <div class="section__inner">
+        <h2 id="secret-title">ここには書かない。</h2>
+        <p class="pull-word" aria-hidden="true">秘密</p>
+        <p class="section-lead">問い合わせの確認に不要な秘密情報は、連絡文にも入力しないでください。</p>
+        <ul class="do-not-send">
+          <li>カード番号</li>
+          <li>銀行口座番号</li>
+          <li>パスワード・認証コード</li>
+          <li>保険証券・契約番号</li>
+          <li>本人確認書類</li>
+          <li>公開したくない個人情報</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="section__inner">
+        <h2 id="status-title">受付先は、準備中です。</h2>
+        <p class="section-lead">このページは、問い合わせ内容を整理してコピーするところまで利用できます。正式なフォームURLまたは受信用メールが決まり次第、同じ場所に送信方法を追加します。</p>
+        <div class="notice">
+          <h3>GitHub Issuesは窓口にしません。</h3>
+          <p>公開コメントへ氏名、メールアドレス、契約情報を書かないでください。正式な窓口を公開したときは、このページの受付状態を更新します。</p>
+        </div>
+        <p class="updated">最終更新：2026年8月8日</p>
+      </div>
+    </section>
+  </main>
+  <!-- /ZOROYA:MAIN -->
+
+  <!-- ZOROYA:FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <nav class="footer-nav" aria-label="関連ページ">
+        <a href="./">トップ</a>
+        <a href="mobile.html">通信費</a>
+        <a href="insurance.html">保険料</a>
+        <a href="power.html">電力会社</a>
+        <a href="securities.html">証券口座</a>
+        <a href="card.html">クレジットカード</a>
+        <a href="contact.html" aria-current="page">お問い合わせ</a>
+        <a href="privacy.html">プライバシー</a>
+        <a href="disclaimer.html">免責事項</a>
+      </nav>
+      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+    </div>
+  </footer>
+  <!-- /ZOROYA:FOOTER -->
+
+  <script>
+    (() => {
+      "use strict";
+
+      const categoryButtons = [...document.querySelectorAll("[data-category]")];
+      const form = document.querySelector("#contact-builder");
+      const pageUrl = document.querySelector("#page-url");
+      const message = document.querySelector("#message");
+      const formError = document.querySelector("#form-error");
+      const result = document.querySelector("#result");
+      const resultText = document.querySelector("#result-text");
+      const copyButton = document.querySelector("#copy-button");
+      const copyStatus = document.querySelector("#copy-status");
+      let selectedCategory = "掲載情報の修正";
+
+      const setCategory = (button) => {
+        selectedCategory = button.dataset.category;
+        categoryButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        copyStatus.textContent = "";
+      };
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener("click", () => setCategory(button));
+      });
+
+      const validate = () => {
+        const errors = [];
+        if (message.value.trim() === "") {
+          errors.push("伝えたい内容を入力してください。");
+        }
+        if (pageUrl.value.trim() !== "" && !pageUrl.validity.valid) {
+          errors.push("対象ページは https:// から始まるURLで入力してください。");
+        }
+        formError.textContent = errors.join(" ");
+        return errors.length === 0;
+      };
+
+      const buildText = () => {
+        const lines = [
+          "【用件】" + selectedCategory,
+          "【対象ページ】" + (pageUrl.value.trim() || "未記入"),
+          "【内容】",
+          message.value.trim(),
+          "",
+          "確認日：" + new Intl.DateTimeFormat("ja-JP", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }).format(new Date())
+        ];
+        return lines.join("\n");
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        copyStatus.textContent = "";
+        if (!validate()) {
+          result.hidden = true;
+          message.focus();
+          return;
+        }
+        resultText.value = buildText();
+        result.hidden = false;
+        resultText.focus();
+      });
+
+      form.addEventListener("reset", () => {
+        window.setTimeout(() => {
+          setCategory(categoryButtons[0]);
+          formError.textContent = "";
+          copyStatus.textContent = "";
+          resultText.value = "";
+          result.hidden = true;
+        }, 0);
+      });
+
+      copyButton.addEventListener("click", async () => {
+        const text = resultText.value;
+        if (!text) return;
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            resultText.focus();
+            resultText.select();
+            if (!document.execCommand("copy")) throw new Error("copy failed");
+          }
+          copyStatus.textContent = "コピーしました。入力内容は送信されていません。";
+        } catch (error) {
+          resultText.focus();
+          resultText.select();
+          copyStatus.textContent = "自動コピーできませんでした。選択した文章を手動でコピーしてください。";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
