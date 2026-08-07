@@ -6,7 +6,7 @@
 
 ## 現在の状態
 
-ぞろ屋式ホームページ作成工程のうち、ライセンス認証を必要としない設計・本文・ファーストビュー選定まで完成しています。採用FVは`fv-23` Stagger Reveal／A「一行ずつ出る」です。現在はGitHub Pagesの入口として、画像を使わない暫定公開プレビュー`index.html`を配置しています。30点以上の画像を使う正式版と固定ページ実装は、正規ライセンス認証後に進めます。
+ぞろ屋式ホームページ作成工程のうち、ライセンス認証を必要としない設計・本文・ファーストビュー選定まで完成しています。採用FVは`fv-23` Stagger Reveal／A「一行ずつ出る」です。現在はGitHub Pagesの入口`index.html`と、通信費の料金差を計算できる`mobile.html`を、画像を使わない暫定公開プレビューとして配置しています。30点以上の画像を使う正式版は、正規ライセンス認証後に進めます。
 
 - [`site-design.md`](site-design.md)：戦略、ペルソナ、コピー、スマホ設計
 - [`SPEC.md`](SPEC.md)：9ページ分の本文・SEO・注意事項・画像計画
@@ -14,6 +14,7 @@
 - [`IMPLEMENTATION-READINESS.md`](IMPLEMENTATION-READINESS.md)：完了範囲と残作業
 - [`hp-builder-input.md`](hp-builder-input.md)：制作インテーク
 - [`index.html`](index.html)：GitHub Pages用の暫定公開プレビュー
+- [`mobile.html`](mobile.html)：通信費の料金差計算と公式確認導線
 
 ## 公開予定
 
