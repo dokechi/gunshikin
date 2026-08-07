@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="軍資金を作るにおけるアクセス情報、Cookie、広告、問い合わせ情報の取扱いを説明します。">
+  <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="プライバシーポリシー｜軍資金を作る">
+  <meta property="og:description" content="取得する情報、Cookie、広告、問い合わせ情報の取扱いを説明します。">
+  <meta property="og:url" content="https://dokechi.github.io/gunshikin/privacy.html">
+  <link rel="canonical" href="https://dokechi.github.io/gunshikin/privacy.html">
+  <title>プライバシーポリシー｜軍資金を作る</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2ed;
+      --surface: #fbfbf7;
+      --ink: #151512;
+      --muted: #66665e;
+      --line: #c9c9bf;
+      --accent: #e84f30;
+      --radius: 12px;
+      --shadow: 0 16px 38px rgb(59 53 42 / 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100dvh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(118deg, transparent 0 67%, rgb(232 79 48 / 0.045) 67% 100%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      font-synthesis: none;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .site-header {
+      min-height: 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      width: min(100% - 24px, 1240px);
+      min-height: 56px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .header-status {
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .page-hero {
+      width: min(100% - 24px, 1240px);
+      min-height: calc(100dvh - 56px);
+      margin-inline: auto;
+      padding: clamp(36px, 7vh, 64px) 0 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .hero-label {
+      margin: 0 0 13px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 10vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 1.02;
+    }
+
+    h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    h1 span:last-child { color: var(--accent); }
+
+    .hero-lead {
+      max-width: 33em;
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+    }
+
+    .hero-action {
+      min-height: 48px;
+      margin-top: 22px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .state-board {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .state-board__title {
+      margin: 0 0 20px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+    }
+
+    .state-board dl { margin: 0; }
+
+    .state-board dl > div {
+      padding: 15px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .state-board dl > div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .state-board dt {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .state-board dd {
+      margin: 0;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .section {
+      padding: 64px 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section--surface { background: var(--surface); }
+
+    .section__inner {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    h2 {
+      max-width: 17em;
+      margin: 0;
+      font-size: clamp(28px, 8.5vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.065em;
+      line-height: 1.08;
+      word-break: auto-phrase;
+      text-wrap: balance;
+    }
+
+    .section-lead {
+      max-width: 46em;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.85;
+    }
+
+    .pull-word {
+      margin: 30px 0 0;
+      color: var(--accent);
+      font-size: clamp(86px, 31vw, 156px);
+      font-weight: 900;
+      letter-spacing: -0.11em;
+      line-height: 0.78;
+    }
+
+    .fact-panel {
+      margin-top: 32px;
+      padding: 22px;
+      border-left: 5px solid var(--accent);
+      background: var(--bg);
+    }
+
+    .fact-panel h3,
+    .policy-block h3,
+    .purpose-item h3,
+    .request-panel h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.4;
+    }
+
+    .fact-panel p,
+    .policy-block p,
+    .purpose-item p,
+    .request-panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .official-link {
+      display: inline-flex;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 900;
+      text-underline-offset: 4px;
+    }
+
+    .policy-split {
+      margin-top: 30px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .policy-block {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .policy-block--accent {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #151512;
+    }
+
+    .policy-block--accent p { color: #3c1c15; }
+
+    .policy-block__label {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .policy-block--accent .policy-block__label { color: #151512; }
+
+    .sensitive-note {
+      margin: 18px 0 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.8;
+    }
+
+    .purpose-grid {
+      margin-top: 30px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .purpose-item {
+      min-height: 156px;
+      padding: 19px;
+      border-top: 5px solid var(--accent);
+      background: var(--surface);
+    }
+
+    .purpose-item strong {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .rule-list {
+      margin: 30px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .rule-list li {
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rule-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .rule-list strong {
+      display: block;
+      font-size: 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .rule-list span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .request-panel {
+      margin-top: 30px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .updated {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .site-footer {
+      padding: 28px 12px max(32px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer__inner {
+      width: min(100%, 980px);
+      margin-inline: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .site-header,
+      .site-header__inner { min-height: 68px; }
+
+      .site-header__inner,
+      .page-hero { width: min(100% - 48px, 1240px); }
+
+      .page-hero {
+        min-height: calc(100dvh - 68px);
+        padding-block: 56px;
+      }
+
+      h1 { font-size: clamp(50px, 6vw, 66px); }
+
+      .hero-lead { font-size: 16px; }
+
+      .state-board { max-width: 560px; }
+
+      .section { padding: 96px 24px; }
+
+      .policy-split,
+      .purpose-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .policy-block { min-height: 230px; }
+    }
+
+    @media (min-width: 960px) {
+      .page-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+        align-items: center;
+        gap: clamp(48px, 7vw, 92px);
+      }
+
+      h1 { font-size: clamp(50px, 4.7vw, 64px); }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171714;
+        --surface: #22221e;
+        --ink: #f2f2ed;
+        --muted: #aaa99d;
+        --line: #494940;
+        --accent: #ff6849;
+        --shadow: 0 18px 42px rgb(5 5 4 / 0.3);
+      }
+
+      body {
+        background:
+          linear-gradient(118deg, transparent 0 67%, rgb(255 104 73 / 0.05) 67% 100%),
+          var(--bg);
+      }
+
+      .policy-block--accent {
+        color: #171714;
+        background: var(--accent);
+      }
+
+      .policy-block--accent p { color: #391711; }
+      .policy-block--accent .policy-block__label { color: #171714; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media (forced-colors: active) {
+      .header-status,
+      .state-board,
+      .policy-block,
+      .sensitive-note,
+      .request-panel { border: 1px solid CanvasText; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://dokechi.github.io/gunshikin/privacy.html#webpage",
+        "url": "https://dokechi.github.io/gunshikin/privacy.html",
+        "name": "プライバシーポリシー｜軍資金を作る",
+        "description": "軍資金を作るにおけるアクセス情報、Cookie、広告、問い合わせ情報の取扱いを説明します。",
+        "inLanguage": "ja",
+        "breadcrumb": { "@id": "https://dokechi.github.io/gunshikin/privacy.html#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dokechi.github.io/gunshikin/privacy.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://dokechi.github.io/gunshikin/" },
+          { "@type": "ListItem", "position": 2, "name": "プライバシーポリシー" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Temporary public preview. Analytics, advertising URLs and the contact form are not configured. -->
+  <!-- ZOROYA:HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
+      <span class="header-status">公開プレビュー</span>
+    </div>
+  </header>
+  <!-- /ZOROYA:HEADER -->
+
+  <!-- ZOROYA:MAIN -->
+  <main>
+    <section class="page-hero" aria-labelledby="hero-title">
+      <div>
+        <p class="hero-label">プライバシーポリシー</p>
+        <h1 id="hero-title">
+          <span>集める情報を、</span>
+          <span>先に書きます。</span>
+        </h1>
+        <p class="hero-lead">いま取得しているもの。これから取得する可能性があるもの。分けて説明します。</p>
+        <a class="hero-action" href="#current">内容を確認する →</a>
+      </div>
+      <aside class="state-board" aria-label="現在のサイト設定">
+        <p class="state-board__title">現在の設定</p>
+        <dl>
+          <div><dt>独自のアクセス解析</dt><dd>未設定</dd></div>
+          <div><dt>問い合わせフォーム</dt><dd>未設定</dd></div>
+          <div><dt>広告・紹介リンク</dt><dd>未設定</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section section--surface" id="current" aria-labelledby="access-title">
+      <div class="section__inner">
+        <h2 id="access-title">いま、記録される情報。</h2>
+        <p class="pull-word" aria-hidden="true">IP</p>
+        <p class="section-lead">当サイトはGitHub Pagesで公開しています。GitHubは、Pagesサイトへのアクセス時に、訪問者のIPアドレスをセキュリティ目的で記録・保存すると案内しています。</p>
+        <div class="fact-panel">
+          <h3>当サイト独自の解析タグは、まだありません。</h3>
+          <p>2026年8月8日現在、Google Analyticsなどの独自アクセス解析タグは設定していません。今後導入する場合は、使用するサービスと取得情報をこのページへ追記します。</p>
+          <a class="official-link" href="https://docs.github.com/ja/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noopener noreferrer">GitHub Pagesのデータ収集説明を見る →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cookie-title">
+      <div class="section__inner">
+        <h2 id="cookie-title">Cookieと広告。</h2>
+        <p class="section-lead">Cookieは、ブラウザへ情報を保存する仕組みです。現在と、将来サービスを追加した場合を分けます。</p>
+        <div class="policy-split">
+          <article class="policy-block policy-block--accent">
+            <span class="policy-block__label">現在</span>
+            <h3>解析・広告目的のCookieは設定していません。</h3>
+            <p>当サイト自身によるアクセス解析タグと広告配信タグは未設定です。広告・紹介リンクもまだありません。</p>
+          </article>
+          <article class="policy-block">
+            <span class="policy-block__label">追加するとき</span>
+            <h3>目的と外部サービスを追記します。</h3>
+            <p>アクセス解析や広告を導入すると、Cookieや閲覧情報が利用される場合があります。導入前後にこのページを更新し、広告リンクの近くにはPR表示を置きます。</p>
+          </article>
+        </div>
+        <p class="sensitive-note">外部サイトへ移動した後は、移動先のCookie設定とプライバシーポリシーが適用されます。</p>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="contact-data-title">
+      <div class="section__inner">
+        <h2 id="contact-data-title">問い合わせで、受け取る情報。</h2>
+        <p class="section-lead">問い合わせ窓口は準備中です。フォームを公開した場合は、連絡に必要な範囲で情報を受け取ります。</p>
+        <div class="policy-split">
+          <article class="policy-block">
+            <span class="policy-block__label">受け取る予定</span>
+            <h3>氏名、メールアドレス、問い合わせ内容。</h3>
+            <p>電話連絡が必要な場合だけ、任意で電話番号を受け取ることがあります。フォーム公開時に必須項目と任意項目を明示します。</p>
+          </article>
+          <article class="policy-block">
+            <span class="policy-block__label">送らない情報</span>
+            <h3>カード番号、口座番号、契約番号、パスワード。</h3>
+            <p>保険証券番号や本人確認書類など、問い合わせへの回答に不要な秘密情報も送らないでください。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="purpose-title">
+      <div class="section__inner">
+        <h2 id="purpose-title">受け取った情報を、何に使うか。</h2>
+        <div class="purpose-grid">
+          <article class="purpose-item">
+            <strong>連絡</strong>
+            <h3>問い合わせに答える。</h3>
+            <p>質問への回答、確認、必要な連絡に使用します。</p>
+          </article>
+          <article class="purpose-item">
+            <strong>訂正</strong>
+            <h3>掲載内容を直す。</h3>
+            <p>誤記、古い条件、リンク切れの確認と修正に使用します。</p>
+          </article>
+          <article class="purpose-item">
+            <strong>安全</strong>
+            <h3>不正利用を防ぐ。</h3>
+            <p>迷惑行為、攻撃、不正アクセスへの対応に使用します。</p>
+          </article>
+          <article class="purpose-item">
+            <strong>改善</strong>
+            <h3>案内を分かりやすくする。</h3>
+            <p>個人を直接識別しない形で、ページ構成や説明の改善に使用する場合があります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="third-party-title">
+      <div class="section__inner">
+        <h2 id="third-party-title">第三者提供と、外部サービス。</h2>
+        <ul class="rule-list">
+          <li>
+            <strong>本人の同意なく第三者へ提供しません。</strong>
+            <span>法令に基づく場合や、人の生命、身体、財産の保護に必要な場合など、法令上認められる例外を除きます。</span>
+          </li>
+          <li>
+            <strong>運営に必要なサービスへ委託する場合があります。</strong>
+            <span>ホスティングや問い合わせフォームなどを利用する場合は、必要な範囲で情報が処理されることがあります。各サービスの規約と安全管理を確認します。</span>
+          </li>
+          <li>
+            <strong>国外で処理される場合があります。</strong>
+            <span>外部サービスのサーバー所在地によっては、日本国外で情報が保存・処理されることがあります。導入サービスが決まり次第、必要な情報を追記します。</span>
+          </li>
+        </ul>
+        <a class="official-link" href="https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/" target="_blank" rel="noopener noreferrer">個人情報保護委員会の通則ガイドラインを見る →</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="management-title">
+      <div class="section__inner">
+        <h2 id="management-title">保存、安全管理、本人からの請求。</h2>
+        <ul class="rule-list">
+          <li>
+            <strong>必要な期間だけ保存します。</strong>
+            <span>利用目的に必要な期間と、法令上必要な期間を考慮して保存し、不要になった情報は適切な方法で削除します。</span>
+          </li>
+          <li>
+            <strong>漏えいと不正アクセスを防ぎます。</strong>
+            <span>アクセス権限の制限、認証情報の管理、利用サービスの確認など、必要かつ適切な安全管理措置を行います。</span>
+          </li>
+          <li>
+            <strong>開示、訂正、利用停止、削除の申出に対応します。</strong>
+            <span>本人確認と対象情報を確認し、法令に従って対応します。問い合わせ窓口の公開後、このページへ受付方法を追記します。</span>
+          </li>
+        </ul>
+        <div class="request-panel">
+          <h3>問い合わせ先は準備中です。</h3>
+          <p>公開中のGitHub Issuesやコメント欄は問い合わせ窓口に使用しません。氏名、メールアドレス、契約情報などを公開コメントへ書かないでください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="links-title">
+      <div class="section__inner">
+        <h2 id="links-title">外部リンクと、方針の改定。</h2>
+        <p class="section-lead">当サイトから移動した外部サイトでは、移動先のプライバシーポリシーが適用されます。当サイトは、法令や利用サービス、サイト機能の変更に応じてこの方針を改定することがあります。重要な変更は、このページで分かるように掲載します。</p>
+        <p class="updated">制定・最終更新：2026年8月8日</p>
+      </div>
+    </section>
+  </main>
+  <!-- /ZOROYA:MAIN -->
+
+  <!-- ZOROYA:FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <nav class="footer-nav" aria-label="関連ページ">
+        <a href="./">トップ</a>
+        <a href="mobile.html">通信費</a>
+        <a href="insurance.html">保険料</a>
+        <a href="power.html">電力会社</a>
+        <a href="securities.html">証券口座</a>
+        <a href="card.html">クレジットカード</a>
+        <a href="privacy.html" aria-current="page">プライバシー</a>
+        <a href="disclaimer.html">免責事項</a>
+      </nav>
+      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+    </div>
+  </footer>
+  <!-- /ZOROYA:FOOTER -->
+</body>
+</html>
