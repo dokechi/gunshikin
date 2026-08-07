@@ -6,7 +6,7 @@
 
 ## 現在の状態
 
-ぞろ屋式ホームページ作成工程のうち、ライセンス認証を必要としない設計・本文・ファーストビュー選定まで完成しています。採用FVは`fv-23` Stagger Reveal／A「一行ずつ出る」です。現在はGitHub Pagesの入口`index.html`と、通信費の料金差を計算できる`mobile.html`、保険料を同条件で比較する`insurance.html`、電気料金と契約条件を確認する`power.html`を、画像を使わない暫定公開プレビューとして配置しています。30点以上の画像を使う正式版は、正規ライセンス認証後に進めます。
+ぞろ屋式ホームページ作成工程のうち、ライセンス認証を必要としない設計・本文・ファーストビュー選定まで完成しています。採用FVは`fv-23` Stagger Reveal／A「一行ずつ出る」です。現在はGitHub Pagesの入口`index.html`と、通信費の料金差を計算できる`mobile.html`、保険料を同条件で比較する`insurance.html`、電気料金と契約条件を確認する`power.html`、証券口座の獲得条件と投資リスクを確認する`securities.html`を、画像を使わない暫定公開プレビューとして配置しています。30点以上の画像を使う正式版は、正規ライセンス認証後に進めます。
 
 - [`site-design.md`](site-design.md)：戦略、ペルソナ、コピー、スマホ設計
 - [`SPEC.md`](SPEC.md)：9ページ分の本文・SEO・注意事項・画像計画
@@ -17,6 +17,7 @@
 - [`mobile.html`](mobile.html)：通信費の料金差計算と公式確認導線
 - [`insurance.html`](insurance.html)：保険料の同条件比較、確認チェック、公式情報導線
 - [`power.html`](power.html)：電気料金の年額目安、契約条件チェック、公式情報導線
+- [`securities.html`](securities.html)：口座開設条件の判定、特典の商品換算、投資リスクと公式情報導線
 
 ## 公開予定
 
