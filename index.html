@@ -262,6 +262,12 @@
       gap: 12px;
     }
 
+    .site-footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
     .site-footer a {
       width: fit-content;
       font-size: 11px;
@@ -480,7 +486,10 @@
   <!-- ZOROYA:FOOTER -->
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <a href="disclaimer.html">免責事項・広告掲載方針 →</a>
+      <nav aria-label="運営方針">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="disclaimer.html">免責事項・広告掲載方針</a>
+      </nav>
       <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
     </div>
   </footer>
