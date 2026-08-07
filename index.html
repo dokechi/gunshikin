@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="転売・物販で欲しい商品を買う資金が足りない人に、通信費・保険料・電力会社・証券口座・クレジットカードの確認入口を案内するサイトです。">
+  <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="軍資金を作る｜欲しい商品を見送る前に">
+  <meta property="og:description" content="欲しい商品がある。でも、金が足りない。じゃあ、先に作る。">
+  <meta property="og:url" content="https://dokechi.github.io/gunshikin/">
+  <link rel="canonical" href="https://dokechi.github.io/gunshikin/">
+  <title>軍資金を作る｜欲しい商品を見送る前に</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2ed;
+      --surface: #ffffff;
+      --ink: #151512;
+      --muted: #66665e;
+      --line: #c9c9bf;
+      --accent: #e84f30;
+      --accent-ink: #ffffff;
+      --radius: 12px;
+      --shadow: 0 16px 38px rgb(59 53 42 / 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100dvh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(110deg, transparent 0 58%, rgb(232 79 48 / 0.05) 58% 100%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      font-synthesis: none;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      min-height: 64px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      width: min(100% - 32px, 1240px);
+      min-height: 64px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .header-meta__status {
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .hero {
+      width: min(100% - 32px, 1240px);
+      min-height: calc(100dvh - 64px);
+      margin-inline: auto;
+      padding: clamp(28px, 5vw, 64px) 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      align-items: center;
+      gap: clamp(30px, 6vw, 88px);
+    }
+
+    .hero-copy { min-width: 0; }
+
+    .preview-label {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.98;
+      word-break: auto-phrase;
+      text-wrap: balance;
+    }
+
+    .reveal-line {
+      display: block;
+      overflow: hidden;
+      padding: 0 0 0.08em;
+    }
+
+    .reveal-inner {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .reveal-line:last-child { color: var(--accent); }
+
+    .hero-lead {
+      max-width: 31em;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.5vw, 18px);
+      font-weight: 700;
+      line-height: 1.8;
+      word-break: auto-phrase;
+      text-wrap: balance;
+    }
+
+    .route-board {
+      padding: clamp(18px, 3vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .route-board__head {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .route-board h2 {
+      margin: 0;
+      font-size: clamp(20px, 2.2vw, 30px);
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+      word-break: auto-phrase;
+      text-wrap: balance;
+    }
+
+    .route-board__note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .routes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .route {
+      min-height: 88px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--ink);
+      font: inherit;
+      text-align: left;
+      opacity: 1;
+      cursor: not-allowed;
+    }
+
+    .route:last-child { grid-column: 1 / -1; }
+
+    .route__title {
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+    }
+
+    .route__state {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .route:last-child {
+      min-height: 76px;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .route-board__footer {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-inner {
+        animation: rise 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation-delay: calc(var(--order) * 0.11s);
+      }
+
+      .preview-label,
+      .hero-lead,
+      .route-board {
+        animation: settle 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .preview-label { animation-delay: 0.05s; }
+      .hero-lead { animation-delay: 0.38s; }
+      .route-board { animation-delay: 0.48s; }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(116%); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes settle {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 767px) {
+      .site-header,
+      .site-header__inner { min-height: 56px; }
+
+      .site-header__inner,
+      .hero { width: min(100% - 24px, 560px); }
+
+      .header-meta__pr { display: none; }
+
+      .hero {
+        min-height: calc(100dvh - 56px);
+        padding: clamp(42px, 8vh, 64px) 0 max(20px, env(safe-area-inset-bottom));
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 22px;
+      }
+
+      .preview-label { margin-bottom: 12px; }
+
+      h1 {
+        font-size: clamp(31px, 9.5vw, 38px);
+        letter-spacing: -0.07em;
+        line-height: 1;
+      }
+
+      .hero-lead {
+        margin-top: 14px;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .route-board { padding: 14px; }
+
+      .route-board__head { margin-bottom: 11px; }
+
+      .route-board h2 { font-size: 19px; }
+
+      .route-board__note { font-size: 9px; }
+
+      .routes { gap: 7px; }
+
+      .route {
+        min-height: 66px;
+        padding: 10px 11px;
+        gap: 7px;
+      }
+
+      .route__title { font-size: 16px; }
+
+      .route:last-child { min-height: 58px; }
+
+      .route-board__footer {
+        margin-top: 10px;
+        font-size: 10px;
+      }
+    }
+
+    @media (max-height: 700px) and (max-width: 767px) {
+      .hero { gap: 15px; padding-top: 14px; }
+      .preview-label { margin-bottom: 8px; }
+      h1 { font-size: clamp(30px, 9.2vw, 36px); }
+      .hero-lead { margin-top: 9px; }
+      .route { min-height: 58px; padding-block: 8px; }
+      .route:last-child { min-height: 52px; }
+      .route-board__footer { display: none; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171714;
+        --surface: #22221e;
+        --ink: #f2f2ed;
+        --muted: #aaa99d;
+        --line: #494940;
+        --accent: #ff6849;
+        --accent-ink: #171714;
+        --shadow: 0 18px 42px rgb(0 0 0 / 0.3);
+      }
+
+      body {
+        background:
+          linear-gradient(110deg, transparent 0 58%, rgb(255 104 73 / 0.055) 58% 100%),
+          var(--bg);
+      }
+    }
+
+    @media (forced-colors: active) {
+      .route-board,
+      .route,
+      .header-meta__status { border: 1px solid CanvasText; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://dokechi.github.io/gunshikin/#organization",
+        "name": "軍資金を作る",
+        "url": "https://dokechi.github.io/gunshikin/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dokechi.github.io/gunshikin/#website",
+        "name": "軍資金を作る",
+        "url": "https://dokechi.github.io/gunshikin/",
+        "publisher": { "@id": "https://dokechi.github.io/gunshikin/#organization" },
+        "inLanguage": "ja"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Temporary public preview. The licensed full build will replace this file. -->
+  <!-- ZOROYA:HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
+      <div class="header-meta" aria-label="公開状態">
+        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
+        <span class="header-meta__status">公開プレビュー</span>
+      </div>
+    </div>
+  </header>
+  <!-- /ZOROYA:HEADER -->
+
+  <!-- ZOROYA:MAIN -->
+  <main class="hero">
+    <section class="hero-copy" aria-labelledby="hero-title">
+      <p class="preview-label">スマホ版を制作中</p>
+      <h1 id="hero-title">
+        <span class="reveal-line"><span class="reveal-inner" style="--order: 0">欲しい商品がある。</span></span>
+        <span class="reveal-line"><span class="reveal-inner" style="--order: 1">でも、金が足りない。</span></span>
+        <span class="reveal-line"><span class="reveal-inner" style="--order: 2">じゃあ、先に作る。</span></span>
+      </h1>
+      <p class="hero-lead">全部やらなくていい。まず、自分に当てはまる入口をひとつ選ぶ。</p>
+    </section>
+
+    <section class="route-board" aria-labelledby="route-title">
+      <div class="route-board__head">
+        <h2 id="route-title">軍資金の入口</h2>
+        <p class="route-board__note">正式版で公開予定</p>
+      </div>
+      <div class="routes" aria-label="公開予定の5つの入口">
+        <button class="route" type="button" disabled>
+          <span class="route__title">通信費</span>
+          <span class="route__state">スマホとWi-Fiを確認</span>
+        </button>
+        <button class="route" type="button" disabled>
+          <span class="route__title">保険料</span>
+          <span class="route__state">同じ保障条件で比較</span>
+        </button>
+        <button class="route" type="button" disabled>
+          <span class="route__title">電力会社</span>
+          <span class="route__state">料金と条件を見る</span>
+        </button>
+        <button class="route" type="button" disabled>
+          <span class="route__title">証券口座</span>
+          <span class="route__state">獲得条件を確認</span>
+        </button>
+        <button class="route" type="button" disabled>
+          <span class="route__title">クレジットカード</span>
+          <span class="route__state">年会費と条件を確認</span>
+        </button>
+      </div>
+      <p class="route-board__footer">金額やポイントは案件と時期で変わります。公開時は公式条件を確認できる導線を設置します。</p>
+    </section>
+  </main>
+  <!-- /ZOROYA:MAIN -->
+
+  <!-- ZOROYA:FOOTER -->
+  <!-- The full release will add the shared footer and legal page links. -->
+  <!-- /ZOROYA:FOOTER -->
+</body>
+</html>
