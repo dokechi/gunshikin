@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="証券口座の特典を見る前に、口座開設だけか、入金や取引まで必要かを分け、費用・獲得条件・投資リスクを確認するスマホ向けページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="軍資金を作る">
+  <meta property="og:title" content="証券口座から軍資金を作る｜軍資金を作る">
+  <meta property="og:description" content="口座開設だけか、入金や取引まで必要か。特典を見る前に条件を分ける。">
+  <meta property="og:url" content="https://dokechi.github.io/gunshikin/securities.html">
+  <link rel="canonical" href="https://dokechi.github.io/gunshikin/securities.html">
+  <title>証券口座から軍資金を作る｜軍資金を作る</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2ed;
+      --surface: #fdfdfa;
+      --surface-soft: #e7e7df;
+      --surface-strong: #151512;
+      --ink: #151512;
+      --ink-inverse: #f7f7f1;
+      --muted: #66665e;
+      --line: #c9c9bf;
+      --accent: #e84f30;
+      --accent-ink: #151512;
+      --accent-soft: #f9d5cc;
+      --focus: #155eef;
+      --danger: #a3261c;
+      --radius: 12px;
+      --page: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      background: var(--bg);
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input { font: inherit; }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .site-header__inner {
+      width: min(100% - 32px, var(--page));
+      min-height: 64px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .header-meta__status {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+    }
+
+    .hero {
+      width: min(100% - 32px, var(--page));
+      min-height: calc(100dvh - 64px);
+      margin-inline: auto;
+      padding: 32px 0 40px;
+      display: grid;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .hero__copy { min-width: 0; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: none;
+      margin-bottom: 18px;
+      font-size: clamp(38px, 10.4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -.065em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero__lead {
+      max-width: 30em;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 900;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .16s ease, background-color .16s ease;
+    }
+
+    .button:hover { background: color-mix(in srgb, var(--accent) 88%, var(--surface)); }
+    .button:active { transform: translateY(1px); }
+
+    .button--secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button--secondary:hover { background: var(--surface-soft); }
+
+    .hero__visual {
+      min-height: 220px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero__visual strong {
+      display: block;
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(63px, 22vw, 132px);
+      font-weight: 900;
+      letter-spacing: -.09em;
+      line-height: .86;
+    }
+
+    .hero__visual p {
+      margin: 24px 0 0 auto;
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.45;
+      text-align: right;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section__inner {
+      width: min(100% - 32px, var(--page));
+      margin-inline: auto;
+    }
+
+    .section h2 {
+      max-width: 16em;
+      margin-bottom: 16px;
+      font-size: clamp(32px, 8vw, 58px);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .section__intro {
+      max-width: 42em;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .split-meaning {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meaning-block {
+      min-height: 178px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .meaning-block--strong {
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .meaning-block__label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .meaning-block--strong .meaning-block__label { color: #bdbdb3; }
+
+    .meaning-block strong {
+      display: block;
+      font-size: clamp(27px, 7vw, 44px);
+      letter-spacing: -.045em;
+      line-height: 1.16;
+    }
+
+    .cost-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cost-item {
+      min-height: 154px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cost-item:nth-child(2) {
+      border-color: var(--accent-soft);
+      background: var(--accent-soft);
+    }
+
+    .cost-item:nth-child(4) { background: var(--surface); }
+
+    .cost-item__name {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .cost-item strong {
+      display: block;
+      font-size: clamp(25px, 7vw, 42px);
+      letter-spacing: -.045em;
+      line-height: 1.15;
+    }
+
+    .cost-item p {
+      margin: 10px 0 0;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .condition-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .condition-option {
+      width: 100%;
+      min-height: 94px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+    }
+
+    .condition-option:hover { border-color: var(--accent); }
+    .condition-option:active { transform: translateY(1px); }
+
+    .condition-option[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .condition-option__mark {
+      width: 28px;
+      height: 28px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .condition-option strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .condition-option small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .condition-result {
+      min-height: 164px;
+      margin-top: 12px;
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .condition-result h3 {
+      margin-bottom: 8px;
+      font-size: 25px;
+      letter-spacing: -.035em;
+      line-height: 1.25;
+    }
+
+    .condition-result p {
+      margin-bottom: 0;
+      color: #bdbdb3;
+      font-weight: 800;
+    }
+
+    .condition-result[data-state="trade"] {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .condition-result[data-state="trade"] p { color: #38231d; }
+
+    .check-head {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .check-head h2 { margin-bottom: 0; }
+
+    .check-count {
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: 18px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .check-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-item {
+      width: 100%;
+      min-height: 92px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+    }
+
+    .check-item:hover { border-color: var(--accent); }
+    .check-item:active { transform: translateY(1px); }
+
+    .check-item[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .check-item:nth-child(4)[aria-pressed="true"] {
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .check-item__mark {
+      width: 24px;
+      height: 24px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .check-item__title {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .check-item__copy {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .check-item:nth-child(4)[aria-pressed="true"] .check-item__copy { color: #bdbdb3; }
+
+    .calculator {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .calculator__inputs {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .field__control { position: relative; }
+
+    .field input {
+      width: 100%;
+      min-height: 54px;
+      padding: 12px 48px 12px 14px;
+      border: 1px solid #62625b;
+      border-radius: var(--radius);
+      background: #292925;
+      color: var(--ink-inverse);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .field input:focus {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-color: var(--ink-inverse);
+    }
+
+    .field__suffix {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      color: #bdbdb3;
+      font-weight: 800;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .field__help {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .calculator__error {
+      min-height: 1.7em;
+      margin: 12px 0 0;
+      color: #ff9f8b;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .calculator .button {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #51514b;
+    }
+
+    .result__empty {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .result__grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .result__item {
+      padding: 16px;
+      border-radius: var(--radius);
+      background: #292925;
+    }
+
+    .result__item--accent {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .result__label {
+      display: block;
+      margin-bottom: 5px;
+      color: #bdbdb3;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .result__item--accent .result__label { color: #38231d; }
+
+    .result__value {
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(28px, 8vw, 42px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1.1;
+    }
+
+    .result__note {
+      margin: 14px 0 0;
+      color: #bdbdb3;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .risk-panel {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+    }
+
+    .risk-panel h2 { margin-bottom: 14px; }
+
+    .risk-panel p {
+      max-width: 43em;
+      color: #49332d;
+      font-weight: 900;
+    }
+
+    .risk-panel p:last-child { margin-bottom: 0; }
+
+    .official-panel {
+      margin-top: 12px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .official-panel h3 {
+      margin-bottom: 10px;
+      font-size: 25px;
+      letter-spacing: -.03em;
+      line-height: 1.25;
+    }
+
+    .official-panel p {
+      max-width: 42em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .official-panel__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .source-links {
+      margin: 22px 0 0;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .source-links a {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+      text-underline-offset: 4px;
+    }
+
+    .faq-list {
+      max-width: 820px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-list details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .faq-list summary {
+      padding: 18px;
+      font-weight: 900;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .faq-list details p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .notice {
+      width: min(100% - 32px, var(--page));
+      margin: 0 auto 72px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .notice strong { color: var(--ink); }
+
+    .site-footer {
+      padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .site-footer__inner {
+      width: min(100% - 32px, var(--page));
+      margin-inline: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .site-footer__brand {
+      margin: 0;
+      font-weight: 900;
+    }
+
+    .site-footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    .site-footer a {
+      color: var(--ink-inverse);
+      font-size: 13px;
+      font-weight: 900;
+      text-underline-offset: 4px;
+    }
+
+    .site-footer__note {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 12px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 720px) {
+      .split-meaning { grid-template-columns: 1.08fr .92fr; }
+      .cost-grid { grid-template-columns: 1.15fr .85fr; }
+      .cost-item:nth-child(1),
+      .cost-item:nth-child(4) { min-height: 220px; }
+      .condition-options { grid-template-columns: repeat(3, 1fr); }
+      .condition-option { grid-template-columns: 1fr; align-content: start; }
+      .calculator { padding: 30px; }
+      .calculator__inputs { grid-template-columns: 1fr 1fr; }
+      .result__grid { grid-template-columns: 1.15fr .85fr; }
+      .check-grid { grid-template-columns: 1fr 1fr; }
+
+      .official-panel__actions {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .site-footer__inner {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
+
+      .site-footer nav { justify-content: flex-end; }
+      .site-footer__note { grid-column: 1 / -1; }
+    }
+
+    @media (min-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+        gap: 54px;
+        padding-block: 54px;
+      }
+
+      h1 { font-size: clamp(48px, 4.5vw, 66px); }
+      .hero__visual { min-height: 430px; }
+    }
+
+    @media (max-width: 499px) {
+      .header-meta__pr { display: none; }
+      .header-meta { gap: 0; }
+      .section { padding: 56px 0; }
+      .check-head { align-items: flex-end; }
+      .official-panel__actions .button { width: 100%; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171714;
+        --surface: #242420;
+        --surface-soft: #30302b;
+        --surface-strong: #eeeee7;
+        --ink: #f4f4ed;
+        --ink-inverse: #171714;
+        --muted: #b7b7ad;
+        --line: #4a4a43;
+        --accent: #ff6849;
+        --accent-ink: #171714;
+        --accent-soft: #50291f;
+        --danger: #ff9f8b;
+      }
+
+      .hero__visual { background: #0f0f0d; color: #f4f4ed; }
+      .hero__visual p { color: #bdbdb3; }
+      .meaning-block--strong .meaning-block__label { color: #5f5f56; }
+      .condition-result { background: #eeeee7; color: #171714; }
+      .condition-result p { color: #585850; }
+      .condition-result[data-state="trade"] { background: var(--accent); color: var(--accent-ink); }
+      .condition-result[data-state="trade"] p { color: #38231d; }
+      .calculator { background: #eeeee7; color: #171714; }
+      .field input { border-color: #aaaa9f; background: #fdfdfa; color: #171714; }
+      .field__suffix,
+      .field__help,
+      .result__empty,
+      .result__note { color: #585850; }
+      .calculator__error { color: #8a2119; }
+      .result { border-color: #b5b5aa; }
+      .result__item { background: #d9d9d0; color: #171714; }
+      .result__lab…344 tokens truncated…     }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "軍資金を作る",
+            "item": "https://dokechi.github.io/gunshikin/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "証券口座",
+            "item": "https://dokechi.github.io/gunshikin/securities.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "口座開設だけで特典を受け取れますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "案件により異なります。開設のみ、入金、一定額の取引など条件が違うため、申込前に獲得条件と対象外条件を最後まで確認してください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "取引が必要な案件も申し込むべきですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "仕組みと損失リスクを理解できない取引はしないでください。投資は元本割れ等のリスクがあり、特典額だけでは判断できません。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "口座の維持費は必ず無料ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "必ずではありません。口座開設料、口座管理料、取引手数料、入出金手数料などを、対象の証券会社の公式情報で確認してください。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <!-- Temporary public preview. The licensed full build will replace the planned image slots. -->
+  <!-- ZOROYA:HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
+      <div class="header-meta" aria-label="公開状態">
+        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
+        <span class="header-meta__status">公開プレビュー</span>
+      </div>
+    </div>
+  </header>
+  <!-- /ZOROYA:HEADER -->
+
+  <!-- ZOROYA:MAIN -->
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">証券口座で作る</p>
+        <h1 id="hero-title"><span>口座を作るだけ？</span><span>だったら候補。</span></h1>
+        <p class="hero__lead">開設だけなのか、入金や取引まで必要なのか。先に分ける。</p>
+        <a class="button" href="#conditions">獲得条件を分ける →</a>
+      </div>
+      <!-- TODO: Formal build image slot. Real account-opening screen on a smartphone, with all personal data removed, 1200x1400. -->
+      <div class="hero__visual" aria-label="口座開設と投資取引は別">
+        <strong>OPEN</strong>
+        <p>ACCOUNT<br>≠ TRADE</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="meaning-title">
+      <div class="section__inner">
+        <h2 id="meaning-title">作ることと、取引することは別。</h2>
+        <p class="section__intro">証券口座は取引の入口です。口座を開くだけなら、投資商品を買う必要はありません。案件条件を先に分けます。</p>
+        <div class="split-meaning">
+          <article class="meaning-block meaning-block--strong">
+            <span class="meaning-block__label">口座開設</span>
+            <strong>本人確認をして<br>口座を作る</strong>
+          </article>
+          <article class="meaning-block">
+            <span class="meaning-block__label">投資取引</span>
+            <strong>自分のお金で金融商品を売買する</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cost-title">
+      <div class="section__inner">
+        <h2 id="cost-title">まず、口座の費用を見る。</h2>
+        <p class="section__intro">「無料」と決めつけず、対象の証券会社の公式ページで確認します。</p>
+        <!-- TODO: Formal build supporting image slot. Real fee page or contract-document photo, 1600x1000. -->
+        <div class="cost-grid">
+          <article class="cost-item">
+            <span class="cost-item__name">口座開設料</span>
+            <strong>作るとき</strong>
+            <p>開設時の費用があるか</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-item__name">口座管理料</span>
+            <strong>持っている間</strong>
+            <p>年間費用や休眠時の扱い</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-item__name">入出金手数料</span>
+            <strong>動かすとき</strong>
+            <p>銀行との資金移動にかかる費用</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-item__name">取引手数料</span>
+            <strong>売買するとき</strong>
+            <p>商品、金額、回数で変わる条件</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="conditions" class="section" aria-labelledby="condition-title">
+      <div class="section__inner">
+        <h2 id="condition-title">条件は、どこまで？</h2>
+        <p class="section__intro">広告や申込先に書かれた達成条件を選びます。条件が重くなるほど、確認することも増えます。</p>
+        <div class="condition-options" aria-label="獲得条件の種類">
+          <button class="condition-option" type="button" data-level="open" aria-pressed="false">
+            <span class="condition-option__mark" aria-hidden="true">A</span>
+            <span><strong>口座開設だけ</strong><small>開設完了が条件</small></span>
+          </button>
+          <button class="condition-option" type="button" data-level="deposit" aria-pressed="false">
+            <span class="condition-option__mark" aria-hidden="true">B</span>
+            <span><strong>入金が必要</strong><small>金額や保持期間が条件</small></span>
+          </button>
+          <button class="condition-option" type="button" data-level="trade" aria-pressed="false">
+            <span class="condition-option__mark" aria-hidden="true">C</span>
+            <span><strong>取引が必要</strong><small>商品購入や売買が条件</small></span>
+          </button>
+        </div>
+        <div class="condition-result" id="condition-result" data-state="empty" aria-live="polite">
+          <h3>条件を1つ選んでください。</h3>
+          <p>申込先の獲得条件を読み、最も重い条件に合わせます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="check-title">
+      <div class="section__inner">
+        <div class="check-head">
+          <h2 id="check-title">この6つを、押して確認。</h2>
+          <span class="check-count" id="check-count" aria-live="polite">0 / 6</span>
+        </div>
+        <p class="section__intro">広告の獲得条件と証券会社の公式ページを並べて、確認できた項目を押します。</p>
+        <div class="check-grid">
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">対象者</span><span class="check-item__copy">新規限定、年齢、居住地などを見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">対象口座</span><span class="check-item__copy">総合口座、NISA、信用口座などを見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">申込経路と期限</span><span class="check-item__copy">指定リンクと完了期限を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">入金条件</span><span class="check-item__copy">必要額、入金方法、保持期間を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">取引条件</span><span class="check-item__copy">対象商品、金額、回数を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">特典の付与</span><span class="check-item__copy">時期、受取方法、対象外条件を見た</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="calculator-title">
+      <div class="section__inner">
+        <h2 id="calculator-title">何個分か、数字にする。</h2>
+        <p class="section__intro">確認できた特典の表示額と、欲しい商品の仕入れ額を入力します。</p>
+        <form class="calculator" id="reward-form" novalidate>
+          <div class="calculator__inputs">
+            <div class="field">
+              <label for="reward-value">特典の表示額</label>
+              <div class="field__control">
+                <input id="reward-value" name="reward-value" type="number" inputmode="numeric" min="0" step="1" autocomplete="off" aria-describedby="reward-help reward-error">
+                <span class="field__suffix">円分</span>
+              </div>
+              <p class="field__help" id="reward-help">申込先で確認できた最新の表示額</p>
+            </div>
+            <div class="field">
+              <label for="item-cost">商品1個の仕入れ額</label>
+              <div class="field__control">
+                <input id="item-cost" name="item-cost" type="number" inputmode="numeric" min="1" step="1" autocomplete="off" aria-describedby="item-help reward-error">
+                <span class="field__suffix">円</span>
+              </div>
+              <p class="field__help" id="item-help">送料や手数料を除いた目安</p>
+            </div>
+          </div>
+          <p class="calculator__error" id="reward-error" role="alert" aria-live="polite"></p>
+          <button class="button" type="submit">商品換算を見る</button>
+          <div class="result" id="reward-result" aria-live="polite">
+            <p class="result__empty">2つの金額を入れると、ここに商品換算が出ます。</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="risk-title">
+      <div class="section__inner">
+        <div class="risk-panel">
+          <h2 id="risk-title">取引まで必要なら、もう別の話。</h2>
+          <p>投資商品には元本割れなどのリスクがあります。特典のためだけに、仕組みを理解できない取引をしないでください。</p>
+          <p>商品と取引方法を理解し、損失の可能性を受け入れられる場合だけ、自分の判断で進めます。</p>
+        </div>
+        <div class="official-panel">
+          <h3>最後は、登録業者と公式条件を見る。</h3>
+          <p>申込先が金融庁の登録を受けているかを確認します。登録の確認だけで終わらず、費用と取引内容も読みます。</p>
+          <div class="official-panel__actions">
+            <a class="button" href="https://www.fsa.go.jp/menkyo/menkyo.html" target="_blank" rel="noopener noreferrer">登録業者を確認する →</a>
+            <a class="button button--secondary" href="https://www.jsda.or.jp/about/hatten/inv_alerts/alearts02/alearts02-3.html" target="_blank" rel="noopener noreferrer">投資の心構えを見る</a>
+          </div>
+          <ul class="source-links">
+            <li><a href="https://www.fsa.go.jp/menkyo/menkyo.html" target="_blank" rel="noopener noreferrer">金融庁 免許・許可・登録等を受けている事業者一覧</a></li>
+            <li><a href="https://www.jsda.or.jp/about/hatten/risk/" target="_blank" rel="noopener noreferrer">日本証券業協会 金融商品や取引の特徴やリスク</a></li>
+            <li><a href="https://www.jsda.or.jp/nisa/investment/basic/" target="_blank" rel="noopener noreferrer">日本証券業協会 証券投資の3つの基本</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="section__inner">
+        <h2 id="faq-title">よくある確認。</h2>
+        <div class="faq-list">
+          <details>
+            <summary>口座開設だけで特典を受け取れる？</summary>
+            <p>案件により異なります。開設のみ、入金、一定額の取引など条件が違うため、申込前に獲得条件と対象外条件を最後まで確認してください。</p>
+          </details>
+          <details>
+            <summary>取引が必要な案件も申し込むべき？</summary>
+            <p>仕組みと損失リスクを理解できない取引はしないでください。投資は元本割れ等のリスクがあり、特典額だけでは判断できません。</p>
+          </details>
+          <details>
+            <summary>口座の維持費は必ず無料？</summary>
+            <p>必ずではありません。口座開設料、口座管理料、取引手数料、入出金手数料などを、対象の証券会社の公式情報で確認してください。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notice" aria-label="注意事項">
+      <strong>公開プレビューです。</strong> このページは一般的な確認手順を整理したもので、特定の証券会社、金融商品、投資方法を推奨するものではありません。特典額や獲得条件は変わるため、申込先の最新表示を優先してください。商品換算は入力値による単純な目安です。入力値は保存・送信しません。現在、広告リンクは未設定です。
+    </aside>
+  </main>
+  <!-- /ZOROYA:MAIN -->
+
+  <!-- ZOROYA:FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">軍資金を作る</p>
+      <nav aria-label="関連ページ">
+        <a href="./">トップ</a>
+        <a href="mobile.html">通信費</a>
+        <a href="insurance.html">保険料</a>
+        <a href="power.html">電力会社</a>
+        <a href="https://www.fsa.go.jp/menkyo/menkyo.html" target="_blank" rel="noopener noreferrer">登録業者一覧</a>
+      </nav>
+      <p class="site-footer__note">口座開設と投資取引は別です。費用、条件、リスクを理解してから判断してください。</p>
+    </div>
+  </footer>
+  <!-- /ZOROYA:FOOTER -->
+
+  <script>
+    const conditionOptions = Array.from(document.querySelectorAll(".condition-option"));
+    const conditionResult = document.querySelector("#condition-result");
+    const conditionMessages = {
+      open: {
+        title: "開設完了の定義を見る。",
+        body: "審査完了、口座番号の発行、初回ログインなど、どこまでで達成になるか確認します。"
+      },
+      deposit: {
+        title: "金額と保持期間を見る。",
+        body: "必要な入金額、入金方法、いつまで残す必要があるか、出金時の手数料を確認します。"
+      },
+      trade: {
+        title: "特典より先に、損失リスクを見る。",
+        body: "対象商品、取引額、回数、手数料を確認します。理解できない取引なら見送ります。"
+      }
+    };
+
+    conditionOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        conditionOptions.forEach((item) => item.setAttribute("aria-pressed", "false"));
+        option.setAttribute("aria-pressed", "true");
+        const level = option.dataset.level;
+        const message = conditionMessages[level];
+        conditionResult.dataset.state = level;
+        conditionResult.innerHTML = `<h3>${message.title}</h3><p>${message.body}</p>`;
+      });
+    });
+
+    const checkItems = Array.from(document.querySelectorAll(".check-item"));
+    const checkCount = document.querySelector("#check-count");
+
+    const updateCheckCount = () => {
+      const checked = checkItems.filter((item) => item.getAttribute("aria-pressed") === "true").length;
+      checkCount.textContent = `${checked} / ${checkItems.length}`;
+    };
+
+    checkItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const isChecked = item.getAttribute("aria-pressed") === "true";
+        item.setAttribute("aria-pressed", String(!isChecked));
+        item.querySelector(".check-item__mark").textContent = isChecked ? "" : "✓";
+        updateCheckCount();
+      });
+    });
+
+    const rewardForm = document.querySelector("#reward-form");
+    const rewardValue = document.querySelector("#reward-value");
+    const itemCost = document.querySelector("#item-cost");
+    const rewardError = document.querySelector("#reward-error");
+    const rewardResult = document.querySelector("#reward-result");
+    const yen = new Intl.NumberFormat("ja-JP");
+
+    rewardForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const reward = Number(rewardValue.value);
+      const item = Number(itemCost.value);
+
+      if (rewardValue.value === "" || itemCost.value === "") {
+        rewardError.textContent = "特典の表示額と商品1個の仕入れ額を、両方入力してください。";
+        rewardResult.innerHTML = '<p class="result__empty">2つの金額を入れると、ここに商品換算が出ます。</p>';
+        return;
+      }
+
+      if (!Number.isFinite(reward) || !Number.isFinite(item) || reward < 0 || item <= 0) {
+        rewardError.textContent = "特典は0円以上、商品は1円以上で入力してください。";
+        rewardResult.innerHTML = '<p class="result__empty">入力内容を直すと、ここに商品換算が出ます。</p>';
+        return;
+      }
+
+      rewardError.textContent = "";
+      const count = Math.floor(reward / item);
+      const remainder = Math.round(reward - count * item);
+
+      rewardResult.innerHTML = `
+        <div class="result__grid">
+          <div class="result__item result__item--accent">
+            <span class="result__label">商品換算の目安</span>
+            <strong class="result__value">${yen.format(count)}個分</strong>
+          </div>
+          <div class="result__item">
+            <span class="result__label">残る金額の目安</span>
+            <strong class="result__value">${yen.format(remainder)}円</strong>
+          </div>
+        </div>
+        <p class="result__note">特典が現金と同じように使えるとは限りません。交換先、期限、付与条件を確認してください。</p>
+      `;
+    });
+  </script>
+</body>
+</html>
