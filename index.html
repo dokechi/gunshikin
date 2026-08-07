@@ -17,7 +17,7 @@
     :root {
       color-scheme: light dark;
       --bg: #f2f2ed;
-      --surface: #ffffff;
+      --surface: #fbfbf7;
       --ink: #151512;
       --muted: #66665e;
       --line: #c9c9bf;
@@ -250,6 +250,32 @@
       line-height: 1.65;
     }
 
+    .site-footer {
+      padding: 26px 16px max(30px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer__inner {
+      width: min(100%, 1240px);
+      margin-inline: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .site-footer a {
+      width: fit-content;
+      font-size: 11px;
+      font-weight: 900;
+      text-underline-offset: 4px;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       .reveal-inner {
         animation: rise 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -452,7 +478,12 @@
   <!-- /ZOROYA:MAIN -->
 
   <!-- ZOROYA:FOOTER -->
-  <!-- The full release will add the shared footer and legal page links. -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="disclaimer.html">免責事項・広告掲載方針 →</a>
+      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+    </div>
+  </footer>
   <!-- /ZOROYA:FOOTER -->
 </body>
 </html>
