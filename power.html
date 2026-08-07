@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="電力会社や料金プランを見直す前に、同じ使用量と期間で請求額を比較し、燃料費調整・市場連動・解約条件を確認するスマホ向けページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="軍資金を作る">
+  <meta property="og:title" content="電力会社から軍資金を作る｜軍資金を作る">
+  <meta property="og:description" content="検針票を用意して、同じ使用量と期間で電気料金と契約条件を比べる。">
+  <meta property="og:url" content="https://dokechi.github.io/gunshikin/power.html">
+  <link rel="canonical" href="https://dokechi.github.io/gunshikin/power.html">
+  <title>電力会社から軍資金を作る｜軍資金を作る</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f2f2ed;
+      --surface: #fdfdfa;
+      --surface-soft: #e7e7df;
+      --surface-strong: #151512;
+      --ink: #151512;
+      --ink-inverse: #f7f7f1;
+      --muted: #66665e;
+      --line: #c9c9bf;
+      --accent: #e84f30;
+      --accent-ink: #151512;
+      --accent-soft: #f9d5cc;
+      --focus: #155eef;
+      --danger: #a3261c;
+      --radius: 12px;
+      --page: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input { font: inherit; }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .site-header__inner {
+      width: min(100% - 32px, var(--page));
+      min-height: 64px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .header-meta__status {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+    }
+
+    .hero {
+      width: min(100% - 32px, var(--page));
+      min-height: calc(100dvh - 64px);
+      margin-inline: auto;
+      padding: 32px 0 40px;
+      display: grid;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .hero__copy { min-width: 0; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: none;
+      margin-bottom: 18px;
+      font-size: clamp(31px, 8.3vw, 48px);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: 1.06;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero__lead {
+      max-width: 30em;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 900;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .16s ease, background-color .16s ease;
+    }
+
+    .button:hover { background: color-mix(in srgb, var(--accent) 88%, var(--surface)); }
+    .button:active { transform: translateY(1px); }
+
+    .button--secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button--secondary:hover { background: var(--surface); }
+
+    .hero__visual {
+      min-height: 210px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero__visual strong {
+      display: block;
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(68px, 24vw, 150px);
+      font-weight: 900;
+      letter-spacing: -.09em;
+      line-height: .86;
+    }
+
+    .hero__visual p {
+      max-width: 18em;
+      margin: 20px 0 0 auto;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section__inner {
+      width: min(100% - 32px, var(--page));
+      margin-inline: auto;
+    }
+
+    .section h2 {
+      max-width: 16em;
+      margin-bottom: 16px;
+      font-size: clamp(32px, 8vw, 60px);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .section__intro {
+      max-width: 41em;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .change-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .change-item {
+      min-height: 178px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .change-item--strong {
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .change-item__label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .change-item--strong .change-item__label { color: #bdbdb3; }
+
+    .change-item strong {
+      display: block;
+      font-size: clamp(25px, 7vw, 42px);
+      letter-spacing: -.04em;
+      line-height: 1.18;
+    }
+
+    .bill-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bill-item {
+      min-height: 156px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bill-item:nth-child(2) {
+      border-color: var(--accent-soft);
+      background: var(--accent-soft);
+    }
+
+    .bill-item:nth-child(4) {
+      background: var(--surface);
+    }
+
+    .bill-item__name {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .bill-item__value {
+      font-size: clamp(26px, 8vw, 46px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+
+    .bill-item__note {
+      margin: 10px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .calculator {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .calculator__inputs {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .field__control {
+      position: relative;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 54px;
+      padding: 12px 48px 12px 14px;
+      border: 1px solid #62625b;
+      border-radius: var(--radius);
+      background: #292925;
+      color: var(--ink-inverse);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .field input:focus {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-color: var(--ink-inverse);
+    }
+
+    .field__suffix {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      color: #bdbdb3;
+      font-weight: 800;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .field__help {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .calculator__error {
+      min-height: 1.7em;
+      margin: 12px 0 0;
+      color: #ff9f8b;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .calculator .button {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #51514b;
+    }
+
+    .result__empty {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .result__grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .result__item {
+      padding: 16px;
+      border-radius: var(--radius);
+      background: #292925;
+    }
+
+    .result__item--accent {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .result__label {
+      display: block;
+      margin-bottom: 5px;
+      color: #bdbdb3;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .result__item--accent .result__label { color: #2d1c17; }
+
+    .result__value {
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(25px, 7vw, 38px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1.15;
+    }
+
+    .result__note {
+      margin: 16px 0 0;
+      color: #bdbdb3;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .check-head {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .check-head h2 { margin-bottom: 0; }
+
+    .check-count {
+      color: var(--accent);
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: 18px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .check-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-item {
+      width: 100%;
+      min-height: 92px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, background-color .16s ease;
+    }
+
+    .check-item:hover { border-color: var(--accent); }
+    .check-item:active { transform: translateY(1px); }
+
+    .check-item[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .check-item:nth-child(3)[aria-pressed="true"] {
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .check-item__mark {
+      width: 24px;
+      height: 24px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .check-item__title {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .check-item__copy {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .check-item:nth-child(3)[aria-pressed="true"] .check-item__copy { color: #bdbdb3; }
+
+    .caution {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+    }
+
+    .caution h2 { margin-bottom: 12px; }
+
+    .caution p {
+      max-width: 42em;
+      margin-bottom: 0;
+      color: #49332d;
+      font-weight: 800;
+    }
+
+    .official-panel {
+      margin-top: 12px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .official-panel h3 {
+      margin-bottom: 10px;
+      font-size: 25px;
+      letter-spacing: -.03em;
+      line-height: 1.25;
+    }
+
+    .official-panel p {
+      max-width: 42em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .official-panel__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .source-links {
+      margin: 22px 0 0;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .source-links a {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+
+    .faq-list {
+      max-width: 820px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-list details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .faq-list summary {
+      padding: 18px;
+      font-weight: 900;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .faq-list details p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .notice {
+      width: min(100% - 32px, var(--page));
+      margin: 0 auto 72px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .notice strong { color: var(--ink); }
+
+    .site-footer {
+      padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
+      background: var(--surface-strong);
+      color: var(--ink-inverse);
+    }
+
+    .site-footer__inner {
+      width: min(100% - 32px, var(--page));
+      margin-inline: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .site-footer__brand {
+      margin: 0;
+      font-weight: 900;
+    }
+
+    .site-footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    .site-footer a {
+      color: var(--ink-inverse);
+      font-size: 13px;
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+
+    .site-footer__note {
+      margin: 0;
+      color: #bdbdb3;
+      font-size: 12px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 720px) {
+      .change-grid { grid-template-columns: 1.1fr .9fr; }
+
+      .bill-grid {
+        grid-template-columns: 1.2fr .8fr;
+        grid-template-areas:
+          "usage amount"
+          "contract plan";
+      }
+
+      .bill-item:nth-child(1) { grid-area: usage; min-height: 230px; }
+      .bill-item:nth-child(2) { grid-area: amount; }
+      .bill-item:nth-child(3) { grid-area: contract; }
+      .bill-item:nth-child(4) { grid-area: plan; min-height: 230px; }
+
+      .calculator { padding: 30px; }
+      .calculator__inputs { grid-template-columns: 1fr 1fr; }
+      .result__grid { grid-template-columns: 1fr 1fr 1.15fr; }
+      .check-grid { grid-template-columns: 1fr 1fr; }
+
+      .official-panel__actions {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .site-footer__inner {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
+
+      .site-footer nav { justify-content: flex-end; }
+      .site-footer__note { grid-column: 1 / -1; }
+    }
+
+    @media (min-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+        gap: 54px;
+        padding-block: 54px;
+      }
+
+      h1 { font-size: clamp(42px, 4.2vw, 64px); }
+      .hero__visual { min-height: 430px; }
+    }
+
+    @media (max-width: 499px) {
+      .header-meta__pr { display: none; }
+      .header-meta { gap: 0; }
+      .section { padding: 56px 0; }
+      .check-head { align-items: flex-end; }
+      .official-panel__actions .button { width: 100%; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171714;
+        --surface: #242420;
+        --surface-soft: #30302b;
+        --surface-strong: #eeeee7;
+        --ink: #f4f4ed;
+        --ink-inverse: #171714;
+        --muted: #b7b7ad;
+        --line: #4a4a43;
+        --accent: #ff6849;
+        --accent-ink: #171714;
+        --accent-soft: #50291f;
+        --danger: #ff9f8b;
+      }
+
+      .site-header { background: color-mix(in srgb, var(--bg) 92%, transparent); }
+      .hero__visual { background: #0f0f0d; color: #f4f4ed; }
+      .hero__visual p { color: #bdbdb3; }
+      .change-item--strong .change-item__label { color: #5f5f56; }
+      .calculator { background: #eeeee7; color: #171714; }
+      .field input { border-color: #aaaa9f; background: #fdfdfa; color: #171714; }
+      .field__suffix,
+      .field__help,
+      .result__empty,
+      .result__note { color: #585850; }
+      .calculator__error { color: #8a2119; }
+      .result { border-color: #b5b5aa; }
+      .result__item { background: #d9d9d0; color: #171714; }
+      .result__label { color: #585850; }
+      .result__item--accent .result__label { color: #2d1c17; }
+      .caution p { color: #f5c4b8; }
+      .check-item:nth-child(3)[aria-pressed="true"] .check-item__copy { color: #4f4f48; }
+      .site-footer { background: #eeeee7; color: #171714; }
+      .site-footer a { color: #171714; }
+      .site-footer__note { color: #585850; }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .site-header {
+        background: var(--bg);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "電力会社から軍資金を作る",
+        "description": "同じ使用量と期間で電気料金と契約条件を比較するスマホ向けページです。",
+        "url": "https://dokechi.github.io/gunshikin/power.html",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "軍資金を作る",
+          "url": "https://dokechi.github.io/gunshikin/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "軍資金を作る",
+            "item": "https://dokechi.github.io/gunshikin/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "電力会社",
+            "item": "https://dokechi.github.io/gunshikin/power.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "電力会社を変えると電気の質や停電のしやすさも変わりますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "小売電気事業者を切り替えても、電気は既存の送配電網を通って届きます。資源エネルギー庁は、電気そのものの品質や信頼性はどの会社から買っても同じと案内しています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "切り替えれば必ず安くなりますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "必ずではありません。地域、契約容量、使用量、料金計算、燃料費調整や市場連動の条件によって結果が変わります。同じ使用量と期間で比較してください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "市場連動型の料金プランは何を確認すればよいですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "市場価格や調達費が料金にどう反映されるか、計算方法、上限の有無、料金が上がる場面を契約前の説明書面で確認してください。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <!-- Temporary public preview. The licensed full build will replace the planned image slots. -->
+  <!-- ZOROYA:HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
+      <div class="header-meta" aria-label="公開状態">
+        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
+        <span class="header-meta__status">公開プレビュー</span>
+      </div>
+    </div>
+  </header>
+  <!-- /ZOROYA:HEADER -->
+
+  <!-- ZOROYA:MAIN -->
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">電力会社で作る</p>
+        <h1 id="hero-title"><span>電気会社を変えるだけ。</span><span>条件が合うなら取る。</span></h1>
+        <p class="hero__lead">検針票を用意して、同じ使用量と期間で比べる。安さはそのあと。</p>
+        <a class="button" href="#bill">検針票を用意する →</a>
+      </div>
+      <!-- TODO: Formal build image slot. Electricity bill and smartphone photo, 1200x1400. -->
+      <div class="hero__visual" aria-label="同じ使用量で比較する">
+        <strong>kWh</strong>
+        <p>使用量をそろえる。<br>比較の入口は、ここ。</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="change-title">
+      <div class="section__inner">
+        <h2 id="change-title">電気は、普通に使う。</h2>
+        <p class="section__intro">契約先を変えても、電気は既存の送配電網を通って届きます。比べるのは電気の質ではなく、料金の計算方法と契約条件です。</p>
+        <div class="change-grid">
+          <article class="change-item change-item--strong">
+            <span class="change-item__label">変わらない</span>
+            <strong>電気そのものの<br>品質と信頼性</strong>
+          </article>
+          <article class="change-item">
+            <span class="change-item__label">変わる</span>
+            <strong>契約先・料金計算・窓口</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bill" class="section" aria-labelledby="bill-title">
+      <div class="section__inner">
+        <h2 id="bill-title">検針票から、数字だけ拾う。</h2>
+        <p class="section__intro">紙の検針票がなければ、いま契約している会社の会員ページや請求メールを確認します。</p>
+        <!-- TODO: Formal build supporting image slot. Real bill photo with personal data fully hidden, 1600x1000. -->
+        <div class="bill-grid">
+          <article class="bill-item">
+            <span class="bill-item__name">使用量</span>
+            <strong class="bill-item__value">kWh</strong>
+            <p class="bill-item__note">比較先にも同じ使用量を入れる</p>
+          </article>
+          <article class="bill-item">
+            <span class="bill-item__name">その月の請求額</span>
+            <strong class="bill-item__value">円</strong>
+            <p class="bill-item__note">基本料金や調整額を含む合計を見る</p>
+          </article>
+          <article class="bill-item">
+            <span class="bill-item__name">契約容量</span>
+            <strong class="bill-item__value">A / kW</strong>
+            <p class="bill-item__note">アンペアや契約電力をそろえる</p>
+          </article>
+          <article class="bill-item">
+            <span class="bill-item__name">プラン名と期間</span>
+            <strong class="bill-item__value">契約条件</strong>
+            <p class="bill-item__note">解約金と最低利用期間まで確認する</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="calculator-title">
+      <div class="section__inner">
+        <h2 id="calculator-title">同じ月で、差を見る。</h2>
+        <p class="section__intro">現在と比較先の月額を入れると、単純に12倍した年額の目安を表示します。</p>
+        <form class="calculator" id="power-form" novalidate>
+          <div class="calculator__inputs">
+            <div class="field">
+              <label for="current-cost">現在の請求額</label>
+              <div class="field__control">
+                <input id="current-cost" name="current-cost" type="number" inputmode="numeric" min="0" step="1" autocomplete="off" aria-describedby="current-help power-error">
+                <span class="field__suffix">円</span>
+              </div>
+              <p class="field__help" id="current-help">比較したい月の請求合計</p>
+            </div>
+            <div class="field">
+              <label for="new-cost">比較先の見積額</label>
+              <div class="field__control">
+                <input id="new-cost" name="new-cost" type="number" inputmode="numeric" min="0" step="1" autocomplete="off" aria-describedby="new-help power-error">
+                <span class="field__suffix">円</span>
+              </div>
+              <p class="field__help" id="new-help">同じ使用量・地域・期間の見積り</p>
+            </div>
+          </div>
+          <p class="calculator__error" id="power-error" role="alert" aria-live="polite"></p>
+          <button class="button" type="submit">年額の目安を出す</button>
+          <div class="result" id="power-result" aria-live="polite">
+            <p class="result__empty">2つの金額を入れると、ここに差額が出ます。</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="check-title">
+      <div class="section__inner">
+        <div class="check-head">
+          <h2 id="check-title">この6つを、押して確認。</h2>
+          <span class="check-count" id="check-count" aria-live="polite">0 / 6</span>
+        </div>
+        <p class="section__intro">申込先の料金表と契約前の説明書面を開き、確認できた項目を押します。</p>
+        <div class="check-grid">
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">同じ使用量と期間</span><span class="check-item__copy">kWh、地域、請求月をそろえた</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">基本料金</span><span class="check-item__copy">最低料金や契約容量の費用を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">調整額と市場連動</span><span class="check-item__copy">燃料費や市場価格の反映方法を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">従量料金</span><span class="check-item__copy">段階別の単価と適用条件を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">契約期間と解約金</span><span class="check-item__copy">更新月や違約金の有無を見た</span></span>
+          </button>
+          <button class="check-item" type="button" aria-pressed="false">
+            <span class="check-item__mark" aria-hidden="true"></span>
+            <span><span class="check-item__title">特典の期限と対象外</span><span class="check-item__copy">ポイント付与時期と除外条件を見た</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="official-title">
+      <div class="section__inner">
+        <div class="caution">
+          <h2 id="official-title">安い月だけ見ない。</h2>
+          <p>季節で使用量は変わります。燃料費調整や市場価格の影響もあるため、1か月の安さだけで年間の得を決めないでください。</p>
+        </div>
+        <div class="official-panel">
+          <h3>最後は、事業者名と契約書面を見る。</h3>
+          <p>申込先が登録小売電気事業者かを確認し、料金、契約期間、契約解除などの説明を読んでから判断します。</p>
+          <div class="official-panel__actions">
+            <a class="button" href="https://www.enecho.meti.go.jp/category/electricity_and_gas/electric/summary/retailers_list/" target="_blank" rel="noopener noreferrer">登録事業者を確認する →</a>
+            <a class="button button--secondary" href="https://www.enecho.meti.go.jp/category/electricity_and_gas/electric/electricity_liberalization/step/" target="_blank" rel="noopener noreferrer">切り替え方法を見る</a>
+          </div>
+          <ul class="source-links">
+            <li><a href="https://www.enecho.meti.go.jp/category/electricity_and_gas/electric/electricity_liberalization/faq/" target="_blank" rel="noopener noreferrer">資源エネルギー庁 電力自由化のよくある質問</a></li>
+            <li><a href="https://www.egc.meti.go.jp/info/liberalization/index.html" target="_blank" rel="noopener noreferrer">電力・ガス取引監視等委員会 消費者向け情報</a></li>
+            <li><a href="https://www.egc.meti.go.jp/info/business/FCAS/index.html" target="_blank" rel="noopener noreferrer">電力・ガス取引監視等委員会 燃料費調整条項の案内</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="section__inner">
+        <h2 id="faq-title">よくある確認。</h2>
+        <div class="faq-list">
+          <details>
+            <summary>電力会社を変えると、電気の質や停電のしやすさも変わる？</summary>
+            <p>小売電気事業者を切り替えても、電気は既存の送配電網を通って届きます。資源エネルギー庁は、電気そのものの品質や信頼性はどの会社から買っても同じと案内しています。</p>
+          </details>
+          <details>
+            <summary>切り替えれば必ず安くなる？</summary>
+            <p>必ずではありません。地域、契約容量、使用量、料金計算、燃料費調整や市場連動の条件によって結果が変わります。同じ使用量と期間で比較してください。</p>
+          </details>
+          <details>
+            <summary>市場連動型の料金プランは何を見る？</summary>
+            <p>市場価格や調達費が料金にどう反映されるか、計算方法、上限の有無、料金が上がる場面を契約前の説明書面で確認してください。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notice" aria-label="注意事項">
+      <strong>公開プレビューです。</strong> このページは一般的な確認手順を整理したもので、特定の電力会社や料金プランを推奨するものではありません。計算結果は入力した1か月分を単純に12倍した目安です。実際の料金や特典は、申込先の最新情報を優先してください。入力値は保存・送信しません。現在、広告リンクは未設定です。
+    </aside>
+  </main>
+  <!-- /ZOROYA:MAIN -->
+
+  <!-- ZOROYA:FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">軍資金を作る</p>
+      <nav aria-label="関連ページ">
+        <a href="./">トップ</a>
+        <a href="mobile.html">通信費</a>
+        <a href="insurance.html">保険料</a>
+        <a href="https://www.enecho.meti.go.jp/category/electricity_and_gas/electric/summary/retailers_list/" target="_blank" rel="noopener noreferrer">登録事業者一覧</a>
+      </nav>
+      <p class="site-footer__note">料金と条件は変わります。申込前に公式情報と契約書面を確認してください。</p>
+    </div>
+  </footer>
+  <!-- /ZOROYA:FOOTER -->
+
+  <script>
+    const powerForm = document.querySelector("#power-form");
+    const currentCost = document.querySelector("#current-cost");
+    const newCost = document.querySelector("#new-cost");
+    const powerError = document.querySelector("#power-error");
+    const powerResult = document.querySelector("#power-result");
+    const yen = new Intl.NumberFormat("ja-JP");
+
+    powerForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const current = Number(currentCost.value);
+      const next = Number(newCost.value);
+
+      if (currentCost.value === "" || newCost.value === "") {
+        powerError.textContent = "現在の請求額と比較先の見積額を、両方入力してください。";
+        powerResult.innerHTML = '<p class="result__empty">2つの金額を入れると、ここに差額が出ます。</p>';
+        return;
+      }
+
+      if (!Number.isFinite(current) || !Number.isFinite(next) || current < 0 || next < 0) {
+        powerError.textContent = "0円以上の金額を入力してください。";
+        powerResult.innerHTML = '<p class="result__empty">入力内容を直すと、ここに差額が出ます。</p>';
+        return;
+      }
+
+      powerError.textContent = "";
+      const currentAnnual = Math.round(current * 12);
+      const nextAnnual = Math.round(next * 12);
+      const difference = currentAnnual - nextAnnual;
+      const differenceLabel = difference >= 0 ? "年額の差" : "年額の増加";
+      const differenceValue = Math.abs(difference);
+
+      powerResult.innerHTML = `
+        <div class="result__grid">
+          <div class="result__item">
+            <span class="result__label">現在の年額目安</span>
+            <strong class="result__value">${yen.format(currentAnnual)}円</strong>
+          </div>
+          <div class="result__item">
+            <span class="result__label">比較先の年額目安</span>
+            <strong class="result__value">${yen.format(nextAnnual)}円</strong>
+          </div>
+          <div class="result__item result__item--accent">
+            <span class="result__label">${differenceLabel}</span>
+            <strong class="result__value">${yen.format(differenceValue)}円</strong>
+          </div>
+        </div>
+        <p class="result__note">1か月分を単純に12倍した目安です。季節、使用量、燃料費調整、市場価格、再エネ賦課金などで実際の年額は変わります。</p>
+      `;
+    });
+
+    const checkItems = Array.from(document.querySelectorAll(".check-item"));
+    const checkCount = document.querySelector("#check-count");
+
+    const updateCheckCount = () => {
+      const checked = checkItems.filter((item) => item.getAttribute("aria-pressed") === "true").length;
+      checkCount.textContent = `${checked} / ${checkItems.length}`;
+    };
+
+    checkItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const isChecked = item.getAttribute("aria-pressed") === "true";
+        item.setAttribute("aria-pressed", String(!isChecked));
+        item.querySelector(".check-item__mark").textContent = isChecked ? "" : "✓";
+        updateCheckCount();
+      });
+    });
+  </script>
+</body>
+</html>
