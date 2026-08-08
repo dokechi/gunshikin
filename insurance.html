@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="必要な保障を削らず、現在の保険と比較先の条件をそろえて月額差と年額差を確認するためのスマホ向けページです。">
+  <meta name="description" content="今の保障内容を持っていき、同じような条件なら他ではいくらかを聞く。月額差と年額差を確認するスマホ向けページです。">
   <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="保険料から軍資金を作る｜軍資金を作る">
-  <meta property="og:description" content="保険、正直よく分からん。必要な保障は残し、同じ条件で保険料の差だけを確認します。">
+  <meta property="og:description" content="保険、正直よく分からん。今の保障内容を見せて、同じような条件なら他ではいくらかを確認します。">
   <meta property="og:url" content="https://dokechi.github.io/gunshikin/insurance.html">
   <meta property="og:site_name" content="軍資金を作る">
   <meta property="og:image" content="https://dokechi.github.io/gunshikin/assets/ogp.png">
@@ -105,24 +105,6 @@
       font-size: 14px;
       font-weight: 900;
       letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      color: var(--ink);
       white-space: nowrap;
     }
 
@@ -695,10 +677,6 @@
 
     .site-footer p { margin: 16px 0 0; }
 
-    @media (max-width: 500px) {
-      .header-meta > span:first-child { display: none; }
-    }
-
     @media (min-width: 760px) {
       .site-header__inner,
       .page { width: min(100% - 48px, 1120px); }
@@ -774,8 +752,7 @@
       .calc-results,
       .result,
       .check-button,
-      .notice,
-      .status { border: 1px solid CanvasText; }
+      .notice { border: 1px solid CanvasText; }
     }
   </style>
   <script type="application/ld+json">
@@ -787,7 +764,7 @@
         "@id": "https://dokechi.github.io/gunshikin/insurance.html#webpage",
         "url": "https://dokechi.github.io/gunshikin/insurance.html",
         "name": "保険料から軍資金を作る",
-        "description": "必要な保障を削らず、同じ条件で保険料の月額差と年額差を確認するページです。",
+        "description": "今の保障内容を持っていき、同じような条件なら他ではいくらかを聞いて、保険料の月額差と年額差を確認するページです。",
         "inLanguage": "ja",
         "isPartOf": { "@id": "https://dokechi.github.io/gunshikin/#website" }
       },
@@ -844,15 +821,10 @@
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
 
-  <!-- Temporary public preview. Formal photography awaits the licensed build. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./">軍資金を作る</a>
-      <div class="header-meta" aria-label="公開状態">
-        <span>PR: 広告を利用予定</span>
-        <span class="status">公開プレビュー</span>
-      </div>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -863,14 +835,14 @@
       <div>
         <p class="eyebrow">保険料から作る</p>
         <h1 id="hero-title">保険、正直<br>よく分からん。</h1>
-        <p class="hero__lead">全部覚えなくていい。今と同じような保障なら、他ではいくらか聞く。</p>
+        <p class="hero__lead">全部覚えなくていい。保険証券を見せて、同じような条件なら他ではいくらか聞く。</p>
         <a class="button hero__button" href="#policy">保険証券を用意する →</a>
       </div>
       <aside class="promise-card" aria-label="比較の前提">
-        <p class="promise-card__pull">残す。</p>
+        <p class="promise-card__pull">そのまま。</p>
         <div>
-          <h2>必要な保障は、<br>先に決める。</h2>
-          <p>安さだけで削らない。同じ条件にそろえてから、保険料の差を見る。</p>
+          <h2>今の保障を、<br>持っていく。</h2>
+          <p>減らすか決めるのは、比較して説明を聞いたあと。月5,000円の差なら、1年で6万円。単純計算例です。</p>
         </div>
       </aside>
     </section>
@@ -896,7 +868,6 @@
       </div>
     </section>
 
-    <!-- TODO formal build: real insurance policy and envelope photo, 1200x900. -->
     <section id="policy" class="section" aria-labelledby="policy-title">
       <div class="section__inner">
         <h2 id="policy-title">証券から、条件だけ拾う。</h2>
@@ -1000,7 +971,6 @@
         <h2 id="official-title">先に解約しない。</h2>
         <p class="section__lead">新しい契約が成立するか、保障がいつ始まるかを確認する前に、今の保険を解約しません。</p>
 
-        <!-- TODO formal build: real comparison-service screen after the destination and usage permission are confirmed. -->
         <div class="official-panel">
           <h3>売り場の前に、<br>公的な説明を見る。</h3>
           <p>金融庁の手引と公的保険ポータル、生命保険文化センターの見直し方法を確認できます。</p>
@@ -1036,8 +1006,8 @@
     </section>
 
     <aside class="notice" aria-label="注意事項">
-      <strong>公開プレビューについて</strong><br>
-      このページは、主に生命保険・医療保険の見直しを想定し、ライセンス認証を使わず公開できる範囲で作成した一般情報の暫定版です。正式版で使う保険証券の写真や比較サービスの実画面はまだ入れていません。現在は比較サービスへの広告リンクも設置していません。計算はブラウザ内だけで行い、入力した金額を送信・保存しません。契約の判断は、公式書面と専門家の説明を確認したうえでご自身で行ってください。
+      <strong>契約前に、書面で確認する。</strong><br>
+      このページは、主に生命保険・医療保険の見直しに関する一般情報です。計算はブラウザ内だけで行い、入力した金額を送信・保存しません。契約の判断は、公式書面と専門家の説明を確認したうえでご自身で行ってください。
     </aside>
   </main>
   <!-- /ZOROYA:MAIN -->
@@ -1058,7 +1028,7 @@
         <a href="https://www.fsa.go.jp/ordinary/hokenkeiyaku/index.html" target="_blank" rel="noopener noreferrer">金融庁の手引</a>
         <a href="https://www.fsa.go.jp/ordinary/insurance-portal.html" target="_blank" rel="noopener noreferrer">公的保険ポータル</a>
       </nav>
-      <p>PR: アフィリエイト広告を利用予定です。現在の外部リンクは公的・公益機関の確認用ページです。<br>© 2026 軍資金を作る</p>
+      <p>外部リンクは公的・公益機関の確認用ページです。<br>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

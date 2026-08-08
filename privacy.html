@@ -87,16 +87,6 @@
       white-space: nowrap;
     }
 
-    .header-status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      font-size: 10px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
     .page-hero {
       width: min(100% - 24px, 1240px);
       min-height: calc(100dvh - 56px);
@@ -484,7 +474,6 @@
     }
 
     @media (forced-colors: active) {
-      .header-status,
       .state-board,
       .policy-block,
       .sensitive-note,
@@ -517,12 +506,10 @@
   </script>
 </head>
 <body>
-  <!-- Temporary public preview. Analytics, advertising URLs and the contact form are not configured. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <span class="header-status">公開プレビュー</span>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -536,15 +523,15 @@
           <span>集める情報を、</span>
           <span>先に書きます。</span>
         </h1>
-        <p class="hero-lead">いま取得しているもの。これから取得する可能性があるもの。分けて説明します。</p>
+        <p class="hero-lead">このサイトで記録される情報と、外部サイトへ移動した後の扱いを分けて説明します。</p>
         <a class="hero-action" href="#current">内容を確認する →</a>
       </div>
       <aside class="state-board" aria-label="現在のサイト設定">
         <p class="state-board__title">現在の設定</p>
         <dl>
-          <div><dt>独自のアクセス解析</dt><dd>未設定</dd></div>
-          <div><dt>問い合わせフォーム</dt><dd>未設定</dd></div>
-          <div><dt>広告・紹介リンク</dt><dd>未設定</dd></div>
+          <div><dt>独自のアクセス解析</dt><dd>使っていません</dd></div>
+          <div><dt>フォーム送信</dt><dd>ありません</dd></div>
+          <div><dt>広告配信タグ</dt><dd>使っていません</dd></div>
         </dl>
       </aside>
     </section>
@@ -555,8 +542,8 @@
         <p class="pull-word" aria-hidden="true">IP</p>
         <p class="section-lead">当サイトはGitHub Pagesで公開しています。GitHubは、Pagesサイトへのアクセス時に、訪問者のIPアドレスをセキュリティ目的で記録・保存すると案内しています。</p>
         <div class="fact-panel">
-          <h3>当サイト独自の解析タグは、まだありません。</h3>
-          <p>2026年8月8日現在、Google Analyticsなどの独自アクセス解析タグは設定していません。今後導入する場合は、使用するサービスと取得情報をこのページへ追記します。</p>
+          <h3>当サイト独自の解析タグは、使っていません。</h3>
+          <p>2026年8月8日現在、Google Analyticsなどの独自アクセス解析タグは設定していません。使用するサービスや取得情報が変わった場合は、このページを更新します。</p>
           <a class="official-link" href="https://docs.github.com/ja/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noopener noreferrer">GitHub Pagesのデータ収集説明を見る →</a>
         </div>
       </div>
@@ -565,17 +552,17 @@
     <section class="section" aria-labelledby="cookie-title">
       <div class="section__inner">
         <h2 id="cookie-title">Cookieと広告。</h2>
-        <p class="section-lead">Cookieは、ブラウザへ情報を保存する仕組みです。現在と、将来サービスを追加した場合を分けます。</p>
+        <p class="section-lead">Cookieは、ブラウザへ情報を保存する仕組みです。当サイトと、移動先の外部サイトを分けて確認してください。</p>
         <div class="policy-split">
           <article class="policy-block policy-block--accent">
             <span class="policy-block__label">現在</span>
             <h3>解析・広告目的のCookieは設定していません。</h3>
-            <p>当サイト自身によるアクセス解析タグと広告配信タグは未設定です。広告・紹介リンクもまだありません。</p>
+            <p>当サイト自身によるアクセス解析タグと広告配信タグは使っていません。</p>
           </article>
           <article class="policy-block">
-            <span class="policy-block__label">追加するとき</span>
-            <h3>目的と外部サービスを追記します。</h3>
-            <p>アクセス解析や広告を導入すると、Cookieや閲覧情報が利用される場合があります。導入前後にこのページを更新し、広告リンクの近くにはPR表示を置きます。</p>
+            <span class="policy-block__label">外部サイト</span>
+            <h3>移動先の方針が適用されます。</h3>
+            <p>公式情報などの外部リンクを開いた後は、移動先のCookie設定とプライバシーポリシーを確認してください。</p>
           </article>
         </div>
         <p class="sensitive-note">外部サイトへ移動した後は、移動先のCookie設定とプライバシーポリシーが適用されます。</p>
@@ -584,13 +571,13 @@
 
     <section class="section section--surface" aria-labelledby="contact-data-title">
       <div class="section__inner">
-        <h2 id="contact-data-title">問い合わせで、受け取る情報。</h2>
-        <p class="section-lead">問い合わせ窓口は準備中です。フォームを公開した場合は、連絡に必要な範囲で情報を受け取ります。</p>
+        <h2 id="contact-data-title">連絡文に入力した情報。</h2>
+        <p class="section-lead">お問い合わせページは、コピー用の文章を端末内で作る機能です。入力内容を当サイトへ送信・保存しません。</p>
         <div class="policy-split">
           <article class="policy-block">
-            <span class="policy-block__label">受け取る予定</span>
-            <h3>氏名、メールアドレス、問い合わせ内容。</h3>
-            <p>電話連絡が必要な場合だけ、任意で電話番号を受け取ることがあります。フォーム公開時に必須項目と任意項目を明示します。</p>
+            <span class="policy-block__label">端末内で処理</span>
+            <h3>対象ページのURLと、伝えたい内容。</h3>
+            <p>入力した情報は、ブラウザ内でコピー用の連絡文に整えるためだけに使います。</p>
           </article>
           <article class="policy-block">
             <span class="policy-block__label">送らない情報</span>
@@ -603,27 +590,27 @@
 
     <section class="section" aria-labelledby="purpose-title">
       <div class="section__inner">
-        <h2 id="purpose-title">受け取った情報を、何に使うか。</h2>
+        <h2 id="purpose-title">入力内容を、どう扱うか。</h2>
         <div class="purpose-grid">
           <article class="purpose-item">
-            <strong>連絡</strong>
-            <h3>問い合わせに答える。</h3>
-            <p>質問への回答、確認、必要な連絡に使用します。</p>
+            <strong>作成</strong>
+            <h3>コピー用の文章を作る。</h3>
+            <p>選んだ用件、URL、本文を、ひとつの連絡文にまとめます。</p>
           </article>
           <article class="purpose-item">
-            <strong>訂正</strong>
-            <h3>掲載内容を直す。</h3>
-            <p>誤記、古い条件、リンク切れの確認と修正に使用します。</p>
+            <strong>確認</strong>
+            <h3>入力漏れを知らせる。</h3>
+            <p>本文が空の場合は、その場で入力を促します。</p>
           </article>
           <article class="purpose-item">
-            <strong>安全</strong>
-            <h3>不正利用を防ぐ。</h3>
-            <p>迷惑行為、攻撃、不正アクセスへの対応に使用します。</p>
+            <strong>保存</strong>
+            <h3>サーバーへ保存しない。</h3>
+            <p>入力内容と作成した連絡文を、当サイトのサーバーへ保存しません。</p>
           </article>
           <article class="purpose-item">
-            <strong>改善</strong>
-            <h3>案内を分かりやすくする。</h3>
-            <p>個人を直接識別しない形で、ページ構成や説明の改善に使用する場合があります。</p>
+            <strong>送信</strong>
+            <h3>この画面から送信しない。</h3>
+            <p>送信先へ自動で転送せず、コピーした文章だけを利用者が扱います。</p>
           </article>
         </div>
       </div>
@@ -634,16 +621,16 @@
         <h2 id="third-party-title">第三者提供と、外部サービス。</h2>
         <ul class="rule-list">
           <li>
-            <strong>本人の同意なく第三者へ提供しません。</strong>
-            <span>法令に基づく場合や、人の生命、身体、財産の保護に必要な場合など、法令上認められる例外を除きます。</span>
+            <strong>サイトはGitHub Pagesで公開しています。</strong>
+            <span>アクセス時のIPアドレスは、GitHubの案内に基づき、セキュリティ目的で記録・保存されます。</span>
           </li>
           <li>
-            <strong>運営に必要なサービスへ委託する場合があります。</strong>
-            <span>ホスティングや問い合わせフォームなどを利用する場合は、必要な範囲で情報が処理されることがあります。各サービスの規約と安全管理を確認します。</span>
+            <strong>連絡文の入力内容は、第三者へ送りません。</strong>
+            <span>お問い合わせページの入力欄はブラウザ内だけで動き、外部サービスへ転送しません。</span>
           </li>
           <li>
-            <strong>国外で処理される場合があります。</strong>
-            <span>外部サービスのサーバー所在地によっては、日本国外で情報が保存・処理されることがあります。導入サービスが決まり次第、必要な情報を追記します。</span>
+            <strong>外部リンク先は、別のサービスです。</strong>
+            <span>外部サイトへ移動した後の情報処理は、移動先の規約とプライバシーポリシーに従います。</span>
           </li>
         </ul>
         <a class="official-link" href="https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/" target="_blank" rel="noopener noreferrer">個人情報保護委員会の通則ガイドラインを見る →</a>
@@ -652,24 +639,24 @@
 
     <section class="section" aria-labelledby="management-title">
       <div class="section__inner">
-        <h2 id="management-title">保存、安全管理、本人からの請求。</h2>
+        <h2 id="management-title">保存と、安全な使い方。</h2>
         <ul class="rule-list">
           <li>
-            <strong>必要な期間だけ保存します。</strong>
-            <span>利用目的に必要な期間と、法令上必要な期間を考慮して保存し、不要になった情報は適切な方法で削除します。</span>
+            <strong>連絡文は、当サイトに保存しません。</strong>
+            <span>ページを離れるか入力を消すと、画面上の内容は破棄されます。</span>
           </li>
           <li>
-            <strong>漏えいと不正アクセスを防ぎます。</strong>
-            <span>アクセス権限の制限、認証情報の管理、利用サービスの確認など、必要かつ適切な安全管理措置を行います。</span>
+            <strong>秘密情報は入力しないでください。</strong>
+            <span>カード番号、口座番号、契約番号、パスワード、本人確認書類は連絡文へ書かないでください。</span>
           </li>
           <li>
-            <strong>開示、訂正、利用停止、削除の申出に対応します。</strong>
-            <span>本人確認と対象情報を確認し、法令に従って対応します。問い合わせ窓口の公開後、このページへ受付方法を追記します。</span>
+            <strong>機能や取得情報が変われば、この方針を更新します。</strong>
+            <span>独自の解析や送信機能を追加した場合は、使用するサービスと情報の扱いをこのページに記載します。</span>
           </li>
         </ul>
         <div class="request-panel">
-          <h3>問い合わせ先は準備中です。</h3>
-          <p>公開中のGitHub Issuesやコメント欄は問い合わせ窓口に使用しません。氏名、メールアドレス、契約情報などを公開コメントへ書かないでください。</p>
+          <h3>GitHub Issuesは窓口にしません。</h3>
+          <p>氏名、メールアドレス、契約情報などを、公開中のIssuesやコメント欄へ書かないでください。</p>
         </div>
       </div>
     </section>
@@ -698,7 +685,7 @@
         <a href="privacy.html" aria-current="page">プライバシー</a>
         <a href="disclaimer.html">免責事項</a>
       </nav>
-      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+      <p>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="軍資金を作るへのご連絡、掲載情報の修正依頼、広告に関するお問い合わせはこちら。">
+  <meta name="description" content="掲載情報の修正、リンク切れ、広告、その他について、端末内でコピー用の連絡文を作れます。">
   <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
@@ -101,16 +101,6 @@
       font-size: 15px;
       font-weight: 900;
       letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .header-status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      font-size: 10px;
-      font-weight: 800;
       white-space: nowrap;
     }
 
@@ -591,7 +581,6 @@
     }
 
     @media (forced-colors: active) {
-      .header-status,
       .state-board,
       .category-button,
       .builder,
@@ -610,7 +599,7 @@
         "@id": "https://dokechi.github.io/gunshikin/contact.html#webpage",
         "url": "https://dokechi.github.io/gunshikin/contact.html",
         "name": "お問い合わせ｜軍資金を作る",
-        "description": "軍資金を作るへのご連絡、掲載情報の修正依頼、広告に関するお問い合わせはこちら。",
+        "description": "掲載情報の修正、リンク切れ、広告、その他について、端末内でコピー用の連絡文を作れるページです。",
         "inLanguage": "ja",
         "breadcrumb": { "@id": "https://dokechi.github.io/gunshikin/contact.html#breadcrumb" }
       },
@@ -627,12 +616,10 @@
   </script>
 </head>
 <body>
-  <!-- Temporary public preview. The inquiry recipient and submission endpoint are not configured. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <span class="header-status">公開プレビュー</span>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -649,10 +636,10 @@
         <p class="hero-lead">情報修正、リンク切れ、広告、その他。連絡文だけ先に作れます。</p>
         <a class="hero-action" href="#builder">連絡文を作る</a>
       </div>
-      <aside class="state-board" aria-label="現在の受付状態">
-        <p class="state-board__title">現在の受付</p>
+      <aside class="state-board" aria-label="このページでできること">
+        <p class="state-board__title">このページの機能</p>
         <dl>
-          <div><dt>正式な送信先</dt><dd>準備中</dd></div>
+          <div><dt>受付方法</dt><dd>連絡文を作成</dd></div>
           <div><dt>この画面から送信</dt><dd>されません</dd></div>
           <div><dt>氏名・メール入力</dt><dd>不要</dd></div>
         </dl>
@@ -673,7 +660,7 @@
         </div>
 
         <form class="builder" id="contact-builder" novalidate>
-          <p class="builder__status"><strong>現在は送信されません。</strong><br>入力内容はサーバーへ送らず、このブラウザ内で連絡文を整えるためだけに使います。</p>
+          <p class="builder__status"><strong>この画面からは送信しません。</strong><br>入力内容はサーバーへ送らず、このブラウザ内で連絡文を整えるためだけに使います。</p>
 
           <div class="field">
             <label for="page-url">対象ページのURL</label>
@@ -754,11 +741,11 @@
 
     <section class="section" aria-labelledby="status-title">
       <div class="section__inner">
-        <h2 id="status-title">受付先は、準備中です。</h2>
-        <p class="section-lead">このページは、問い合わせ内容を整理してコピーするところまで利用できます。正式なフォームURLまたは受信用メールが決まり次第、同じ場所に送信方法を追加します。</p>
+        <h2 id="status-title">連絡文は、この画面で作れます。</h2>
+        <p class="section-lead">用件を整理してコピーするためのページです。作成した文章は、お使いの連絡手段へ貼り付けて利用してください。</p>
         <div class="notice">
           <h3>GitHub Issuesは窓口にしません。</h3>
-          <p>公開コメントへ氏名、メールアドレス、契約情報を書かないでください。正式な窓口を公開したときは、このページの受付状態を更新します。</p>
+          <p>公開コメントへ氏名、メールアドレス、契約情報を書かないでください。このページからGitHubへ情報が送られることはありません。</p>
         </div>
         <p class="updated">最終更新：2026年8月8日</p>
       </div>
@@ -780,7 +767,7 @@
         <a href="privacy.html">プライバシー</a>
         <a href="disclaimer.html">免責事項</a>
       </nav>
-      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+      <p>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

@@ -88,16 +88,6 @@
       white-space: nowrap;
     }
 
-    .header-status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      font-size: 10px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
     .hero {
       width: min(100% - 24px, 1080px);
       min-height: calc(100dvh - 56px);
@@ -522,7 +512,6 @@
     }
 
     @media (forced-colors: active) {
-      .header-status,
       .policy-stamp,
       .pr-panel,
       .policy-card,
@@ -567,7 +556,7 @@
           {
             "@type": "Question",
             "name": "広告リンクはどこで分かりますか？",
-            "acceptedAnswer": { "@type": "Answer", "text": "広告リンクを設置する場合は、リンクや掲載枠の近くにPRなどの表示を置きます。公開プレビューでは広告リンクは未設定です。" }
+            "acceptedAnswer": { "@type": "Answer", "text": "広告・紹介リンクには、リンクや掲載枠の近くに「PR」などの表示を置きます。" }
           }
         ]
       }
@@ -576,12 +565,10 @@
   </script>
 </head>
 <body>
-  <!-- Temporary public preview. Advertising URLs and formal contact details are not configured. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <span class="header-status">公開プレビュー</span>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -607,12 +594,12 @@
     <section class="section section--surface" id="policy" aria-labelledby="ad-title">
       <div class="section__inner">
         <p class="section-number">01 / ADVERTISING</p>
-        <h2 id="ad-title">このサイトは、広告を含みます。</h2>
-        <p class="section-lead">商品やサービスへのリンクを通じて申込みや購入が行われた場合、当サイトが成果報酬を受け取ることがあります。</p>
+        <h2 id="ad-title">広告・紹介リンクには、PRと表示します。</h2>
+        <p class="section-lead">商品やサービスへの広告・紹介リンクを掲載し、そのリンクから申込みや購入が行われた場合、当サイトが成果報酬を受け取ることがあります。</p>
         <div class="pr-panel">
           <p class="pr-panel__mark">PR</p>
           <h3>広告であることを、近くに表示します。</h3>
-          <p>広告リンクや広告掲載枠を設置する場合は、「PR」などの表示を近くに置きます。広告であることを分かりにくく見せる掲載は行いません。現在の公開プレビューでは、広告リンクは未設定です。</p>
+          <p>広告・紹介リンクや広告掲載枠には、「PR」などの表示を近くに置きます。広告であることを分かりにくく見せる掲載は行いません。</p>
           <a class="official-link" href="https://www.caa.go.jp/policies/policy/representation/fair_labeling/stealth_marketing/" target="_blank" rel="noopener noreferrer">消費者庁のステルスマーケティング規制を見る →</a>
         </div>
       </div>
@@ -709,8 +696,8 @@
         <h2 id="correction-title">間違いは、直します。</h2>
         <p class="section-lead">掲載内容に誤りが見つかった場合は、確認のうえ訂正します。</p>
         <div class="contact-panel">
-          <h3>訂正連絡の窓口は準備中です。</h3>
-          <p>連絡先の公開までは、氏名、住所、契約番号などの個人情報を、公開コメントや外部サービスへ書き込まないでください。</p>
+          <h3>訂正内容は、連絡文にまとめられます。</h3>
+          <p><a href="contact.html">お問い合わせページ</a>で、対象ページと訂正内容をコピー用の文章にまとめられます。この画面から送信はしません。氏名、住所、契約番号などの個人情報は入力しないでください。</p>
         </div>
         <p class="updated">制定・最終更新：2026年8月8日</p>
       </div>
@@ -731,7 +718,7 @@
           </details>
           <details>
             <summary>広告リンクはどこで分かりますか？</summary>
-            <p>広告リンクを設置する場合は、リンクや掲載枠の近くに「PR」などの表示を置きます。現在の公開プレビューでは広告リンクは未設定です。</p>
+            <p>広告・紹介リンクには、リンクや掲載枠の近くに「PR」などの表示を置きます。</p>
           </details>
         </div>
       </div>
@@ -753,7 +740,7 @@
         <a href="privacy.html">プライバシー</a>
         <a href="disclaimer.html" aria-current="page">免責事項</a>
       </nav>
-      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+      <p>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

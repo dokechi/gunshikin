@@ -106,23 +106,6 @@
       white-space: nowrap;
     }
 
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .header-meta__status {
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--ink);
-    }
-
     .hero {
       width: min(100% - 32px, var(--page));
       min-height: calc(100dvh - 64px);
@@ -734,8 +717,6 @@
     }
 
     @media (max-width: 499px) {
-      .header-meta__pr { display: none; }
-      .header-meta { gap: 0; }
       .section { padding: 56px 0; }
       .check-head { align-items: flex-end; }
       .official-panel__actions .button { width: 100%; }
@@ -863,15 +844,10 @@
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
 
-  <!-- Temporary public preview. The licensed full build will replace the planned image slots. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <div class="header-meta" aria-label="公開状態">
-        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
-        <span class="header-meta__status">公開プレビュー</span>
-      </div>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -882,13 +858,12 @@
       <div class="hero__copy">
         <p class="eyebrow">電力会社で作る</p>
         <h1 id="hero-title"><span>電気会社を変えるだけ。</span><span>条件が合うなら取る。</span></h1>
-        <p class="hero__lead">検針票を用意して、同じ使用量と期間で比べる。安さはそのあと。</p>
+        <p class="hero__lead">検針票を用意して、同じ使用量で料金差を出す。条件は、差が出てから見る。</p>
         <a class="button" href="#bill">検針票を用意する →</a>
       </div>
-      <!-- TODO: Formal build image slot. Electricity bill and smartphone photo, 1200x1400. -->
-      <div class="hero__visual" aria-label="同じ使用量で比較する">
-        <strong>kWh</strong>
-        <p>使用量をそろえる。<br>比較の入口は、ここ。</p>
+      <div class="hero__visual" aria-label="月額差を年額に換算する例">
+        <strong>¥5,000</strong>
+        <p>月5,000円の差なら、<br>1年で6万円。<br>単純計算例です。</p>
       </div>
     </section>
 
@@ -913,7 +888,6 @@
       <div class="section__inner">
         <h2 id="bill-title">検針票から、数字だけ拾う。</h2>
         <p class="section__intro">紙の検針票がなければ、いま契約している会社の会員ページや請求メールを確認します。</p>
-        <!-- TODO: Formal build supporting image slot. Real bill photo with personal data fully hidden, 1600x1000. -->
         <div class="bill-grid">
           <article class="bill-item">
             <span class="bill-item__name">使用量</span>
@@ -1051,7 +1025,7 @@
     </section>
 
     <aside class="notice" aria-label="注意事項">
-      <strong>公開プレビューです。</strong> このページは一般的な確認手順を整理したもので、特定の電力会社や料金プランを推奨するものではありません。計算結果は入力した1か月分を単純に12倍した目安です。実際の料金や特典は、申込先の最新情報を優先してください。入力値は保存・送信しません。現在、広告リンクは未設定です。
+      <strong>計算結果は目安です。</strong> このページは一般的な確認手順を整理したもので、特定の電力会社や料金プランを推奨するものではありません。計算結果は入力した1か月分を単純に12倍しています。実際の料金や特典は、申込先の最新情報を優先してください。入力値は保存・送信しません。
     </aside>
   </main>
   <!-- /ZOROYA:MAIN -->

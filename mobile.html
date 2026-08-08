@@ -109,24 +109,6 @@
       white-space: nowrap;
     }
 
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
     .page {
       width: min(100% - 24px, 1120px);
       margin-inline: auto;
@@ -531,10 +513,6 @@
 
     .site-footer p { margin: 16px 0 0; }
 
-    @media (max-width: 500px) {
-      .header-meta > span:first-child { display: none; }
-    }
-
     @media (min-width: 760px) {
       .site-header__inner,
       .page { width: min(100% - 48px, 1120px); }
@@ -598,8 +576,7 @@
       .calc-fields,
       .calc-results,
       .result,
-      .notice,
-      .status { border: 1px solid CanvasText; }
+      .notice { border: 1px solid CanvasText; }
     }
   </style>
   <script type="application/ld+json">
@@ -668,15 +645,10 @@
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
 
-  <!-- Temporary public preview. The licensed full build will replace the visual assets. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./">軍資金を作る</a>
-      <div class="header-meta" aria-label="公開状態">
-        <span>PR: 広告を利用予定</span>
-        <span class="status">公開プレビュー</span>
-      </div>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -687,13 +659,13 @@
       <div>
         <p class="eyebrow">通信費から作る</p>
         <h1 id="hero-title">これ、ほんまに<br>両方いる？</h1>
-        <p class="hero__lead">スマホ代。Wi-Fi代。毎月、両方払っているなら一回だけ確認する。</p>
+        <p class="hero__lead">スマホ代とWi-Fi代を入れて、1年分の差を出す。つながるなら一本化を考える。</p>
         <a class="button hero__button" href="#calculator">自分の金額を入れる →</a>
       </div>
       <aside class="decision-card" aria-label="判断の要点">
         <p class="decision-card__number">2→1</p>
         <h2>一本化できるかを<br>先に試す。</h2>
-        <p>安さだけで決めない。電波、通信量、接続台数が足りる場合だけ進める。</p>
+        <p>月5,000円下がれば、1年で6万円。単純計算例です。電波、通信量、接続台数が足りる場合だけ進める。</p>
       </aside>
     </section>
 
@@ -826,8 +798,8 @@
     </section>
 
     <aside class="notice" aria-label="注意事項">
-      <strong>公開プレビューについて</strong><br>
-      このページは、ライセンス認証を使わず公開できる範囲で作成した暫定版です。正式版で使う写真や実画面画像はまだ入れていません。料金、エリア、キャンペーン、契約条件は変更される場合があります。申し込みや解約の前に必ず公式情報とご自身の契約書面を確認してください。
+      <strong>確認してから申し込む。</strong><br>
+      料金、エリア、キャンペーン、契約条件は変わることがあります。申し込みや解約の前に、公式情報とご自身の契約書面を確認してください。入力した金額はブラウザ内で計算し、保存・送信しません。
     </aside>
   </main>
   <!-- /ZOROYA:MAIN -->
@@ -849,7 +821,7 @@
         <a href="https://network.mobile.rakuten.co.jp/fee/saikyo-plan/detail/" target="_blank" rel="noopener noreferrer">公式プラン詳細</a>
         <a href="https://network.mobile.rakuten.co.jp/guide/tethering/" target="_blank" rel="noopener noreferrer">公式テザリングガイド</a>
       </nav>
-      <p>PR: アフィリエイト広告を利用予定です。現在の外部リンクは楽天モバイル公式ページへの確認用リンクです。<br>© 2026 軍資金を作る</p>
+      <p>外部リンクは楽天モバイル公式ページです。<br>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="証券口座の特典を見る前に、口座開設だけか、入金や取引まで必要かを分け、費用・獲得条件・投資リスクを確認するスマホ向けページです。">
+  <meta name="description" content="証券口座の特典で何をもらえ、どこで使えるかを確認。口座開設だけか、入金や取引まで必要かも分けて判断します。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="軍資金を作る">
   <meta property="og:title" content="証券口座から軍資金を作る｜軍資金を作る">
-  <meta property="og:description" content="口座開設だけか、入金や取引まで必要か。特典を見る前に条件を分ける。">
+  <meta property="og:description" content="何をもらえて、どこで使えるか。口座開設だけか、取引まで必要かも先に分ける。">
   <meta property="og:url" content="https://dokechi.github.io/gunshikin/securities.html">
   <meta property="og:image" content="https://dokechi.github.io/gunshikin/assets/ogp.png">
   <meta property="og:image:type" content="image/png">
@@ -108,23 +108,6 @@
       letter-spacing: .02em;
       text-decoration: none;
       white-space: nowrap;
-    }
-
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .header-meta__status {
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: var(--ink);
     }
 
     .hero {
@@ -510,6 +493,31 @@
 
     .check-item:nth-child(4)[aria-pressed="true"] .check-item__copy { color: #bdbdb3; }
 
+    .reward-context {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .reward-context div {
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .reward-context dt {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .reward-context dd {
+      margin: 5px 0 0;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
     .calculator {
       padding: 20px;
       border-radius: var(--radius);
@@ -783,6 +791,7 @@
       .cost-item:nth-child(4) { min-height: 220px; }
       .condition-options { grid-template-columns: repeat(3, 1fr); }
       .condition-option { grid-template-columns: 1fr; align-content: start; }
+      .reward-context { grid-template-columns: 1fr 1fr; }
       .calculator { padding: 30px; }
       .calculator__inputs { grid-template-columns: 1fr 1fr; }
       .result__grid { grid-template-columns: 1.15fr .85fr; }
@@ -814,8 +823,6 @@
     }
 
     @media (max-width: 499px) {
-      .header-meta__pr { display: none; }
-      .header-meta { gap: 0; }
       .section { padding: 56px 0; }
       .check-head { align-items: flex-end; }
       .official-panel__actions .button { width: 100%; }
@@ -946,15 +953,10 @@
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
 
-  <!-- Temporary public preview. The licensed full build will replace the planned image slots. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <div class="header-meta" aria-label="公開状態">
-        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
-        <span class="header-meta__status">公開プレビュー</span>
-      </div>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -965,13 +967,12 @@
       <div class="hero__copy">
         <p class="eyebrow">証券口座で作る</p>
         <h1 id="hero-title"><span>口座を作るだけ？</span><span>だったら候補。</span></h1>
-        <p class="hero__lead">開設だけなのか、入金や取引まで必要なのか。先に分ける。</p>
-        <a class="button" href="#conditions">獲得条件を分ける →</a>
+        <p class="hero__lead">開設条件の前に、何をもらえて、どこで使えるかを見る。取引が要るなら、そこで止まる。</p>
+        <a class="button" href="#conditions">受取内容と条件を見る →</a>
       </div>
-      <!-- TODO: Formal build image slot. Real account-opening screen on a smartphone, with all personal data removed, 1200x1400. -->
-      <div class="hero__visual" aria-label="口座開設と投資取引は別">
-        <strong>OPEN</strong>
-        <p>ACCOUNT<br>≠ TRADE</p>
+      <div class="hero__visual" aria-label="特典の受取内容と利用先を確認">
+        <strong>何を</strong>
+        <p>もらえる？<br>どこで使える？</p>
       </div>
     </section>
 
@@ -996,7 +997,6 @@
       <div class="section__inner">
         <h2 id="cost-title">まず、口座の費用を見る。</h2>
         <p class="section__intro">「無料」と決めつけず、対象の証券会社の公式ページで確認します。</p>
-        <!-- TODO: Formal build supporting image slot. Real fee page or contract-document photo, 1600x1000. -->
         <div class="cost-grid">
           <article class="cost-item">
             <span class="cost-item__name">口座開設料</span>
@@ -1086,19 +1086,23 @@
     <section class="section" aria-labelledby="calculator-title">
       <div class="section__inner">
         <h2 id="calculator-title">何個分か、数字にする。</h2>
-        <p class="section__intro">確認できた特典の表示額と、欲しい商品の仕入れ額を入力します。</p>
+        <p class="section__intro">受取内容と利用先を確認した特典の表示額と、商品1個の購入額・仕入れ額を入力します。</p>
+        <dl class="reward-context">
+          <div><dt>何でもらえる？</dt><dd>現金・ポイント・その他</dd></div>
+          <div><dt>どこで使える？</dt><dd>利用先・期限を確認</dd></div>
+        </dl>
         <form class="calculator" id="reward-form" novalidate>
           <div class="calculator__inputs">
             <div class="field">
-              <label for="reward-value">特典の表示額</label>
+              <label for="reward-value">特典の表示額（円相当）</label>
               <div class="field__control">
                 <input id="reward-value" name="reward-value" type="number" inputmode="numeric" min="0" step="1" autocomplete="off" aria-describedby="reward-help reward-error">
-                <span class="field__suffix">円分</span>
+                <span class="field__suffix">円相当</span>
               </div>
-              <p class="field__help" id="reward-help">申込先で確認できた最新の表示額</p>
+              <p class="field__help" id="reward-help">現金・ポイントなど、受取内容も確認</p>
             </div>
             <div class="field">
-              <label for="item-cost">商品1個の仕入れ額</label>
+              <label for="item-cost">商品1個の購入額・仕入れ額</label>
               <div class="field__control">
                 <input id="item-cost" name="item-cost" type="number" inputmode="numeric" min="1" step="1" autocomplete="off" aria-describedby="item-help reward-error">
                 <span class="field__suffix">円</span>
@@ -1160,7 +1164,7 @@
     </section>
 
     <aside class="notice" aria-label="注意事項">
-      <strong>公開プレビューです。</strong> このページは一般的な確認手順を整理したもので、特定の証券会社、金融商品、投資方法を推奨するものではありません。特典額や獲得条件は変わるため、申込先の最新表示を優先してください。商品換算は入力値による単純な目安です。入力値は保存・送信しません。現在、広告リンクは未設定です。
+      <strong>商品換算は目安です。</strong> このページは一般的な確認手順を整理したもので、特定の証券会社、金融商品、投資方法を推奨するものではありません。特典額や獲得条件は変わるため、申込先の最新表示を優先してください。入力値は保存・送信しません。
     </aside>
   </main>
   <!-- /ZOROYA:MAIN -->
@@ -1245,7 +1249,7 @@
       const item = Number(itemCost.value);
 
       if (rewardValue.value === "" || itemCost.value === "") {
-        rewardError.textContent = "特典の表示額と商品1個の仕入れ額を、両方入力してください。";
+        rewardError.textContent = "特典の表示額と商品1個の購入額・仕入れ額を、両方入力してください。";
         rewardResult.innerHTML = '<p class="result__empty">2つの金額を入れると、ここに商品換算が出ます。</p>';
         return;
       }
@@ -1267,8 +1271,8 @@
             <strong class="result__value">${yen.format(count)}個分</strong>
           </div>
           <div class="result__item">
-            <span class="result__label">残る金額の目安</span>
-            <strong class="result__value">${yen.format(remainder)}円</strong>
+            <span class="result__label">表示額の残り</span>
+            <strong class="result__value">${yen.format(remainder)}円相当</strong>
           </div>
         </div>
         <p class="result__note">特典が現金と同じように使えるとは限りません。交換先、期限、付与条件を確認してください。</p>

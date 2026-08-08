@@ -82,25 +82,6 @@
       white-space: nowrap;
     }
 
-    .header-meta {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .header-meta__status {
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
     .hero {
       width: min(100% - 32px, 1240px);
       min-height: calc(100dvh - 64px);
@@ -113,14 +94,6 @@
     }
 
     .hero-copy { min-width: 0; }
-
-    .preview-label {
-      margin: 0 0 18px;
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-    }
 
     h1 {
       margin: 0;
@@ -154,6 +127,14 @@
       line-height: 1.8;
       word-break: auto-phrase;
       text-wrap: balance;
+    }
+
+    .hero-lead small {
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.6;
     }
 
     .route-board {
@@ -297,13 +278,11 @@
         animation-delay: calc(var(--order) * 0.11s);
       }
 
-      .preview-label,
       .hero-lead,
       .route-board {
         animation: settle 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
 
-      .preview-label { animation-delay: 0.05s; }
       .hero-lead { animation-delay: 0.38s; }
       .route-board { animation-delay: 0.48s; }
     }
@@ -336,8 +315,6 @@
       .site-header__inner,
       .hero { width: min(100% - 24px, 560px); }
 
-      .header-meta__pr { display: none; }
-
       .hero {
         min-height: calc(100dvh - 56px);
         padding: clamp(42px, 8vh, 64px) 0 max(20px, env(safe-area-inset-bottom));
@@ -347,8 +324,6 @@
         justify-content: flex-start;
         gap: 22px;
       }
-
-      .preview-label { margin-bottom: 12px; }
 
       h1 {
         font-size: clamp(31px, 9.5vw, 38px);
@@ -390,7 +365,6 @@
 
     @media (max-height: 700px) and (max-width: 767px) {
       .hero { gap: 15px; padding-top: 14px; }
-      .preview-label { margin-bottom: 8px; }
       h1 { font-size: clamp(30px, 9.2vw, 36px); }
       .hero-lead { margin-top: 9px; }
       .route { min-height: 58px; padding-block: 8px; }
@@ -419,8 +393,7 @@
 
     @media (forced-colors: active) {
       .route-board,
-      .route,
-      .header-meta__status { border: 1px solid CanvasText; }
+      .route { border: 1px solid CanvasText; }
     }
   </style>
   <script type="application/ld+json">
@@ -446,15 +419,10 @@
   </script>
 </head>
 <body>
-  <!-- Temporary public preview. The licensed full build will replace this file. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <div class="header-meta" aria-label="公開状態">
-        <span class="header-meta__pr">PR: アフィリエイト広告を利用予定</span>
-        <span class="header-meta__status">公開プレビュー</span>
-      </div>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -467,7 +435,7 @@
         <span class="reveal-line"><span class="reveal-inner" style="--order: 1">でも、金が足りない。</span></span>
         <span class="reveal-line"><span class="reveal-inner" style="--order: 2">じゃあ、先に作る。</span></span>
       </h1>
-      <p class="hero-lead">全部やらなくていい。まず、自分に当てはまる入口をひとつ選ぶ。</p>
+      <p class="hero-lead">全部やらなくていい。月5,000円の差なら、1年で6万円。まず、入口をひとつ選ぶ。<small>単純計算例です。実際の差額は料金と契約条件で変わります。</small></p>
     </section>
 
     <section class="route-board" aria-labelledby="route-title">
@@ -509,7 +477,7 @@
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="disclaimer.html">免責事項・広告掲載方針</a>
       </nav>
-      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+      <p>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->

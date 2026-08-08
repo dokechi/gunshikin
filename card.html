@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="クレジットカード案件で、年会費、獲得条件、管理できる枚数を先に確認します。">
+  <meta name="description" content="クレジットカード案件で、年会費、特典の受取内容と利用先、獲得条件、管理できる枚数を確認します。">
   <meta name="theme-color" content="#f2f2ed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#171714" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="年会費無料カードの条件を見る｜軍資金を作る">
-  <meta property="og:description" content="年会費0円の条件、必要な利用額、特典の付与時期、管理できる枚数を一つずつ確認します。">
+  <meta property="og:description" content="年会費0円の条件に加え、特典が現金かポイントか、どこで使えるかを確認します。">
   <meta property="og:url" content="https://dokechi.github.io/gunshikin/card.html">
   <meta property="og:site_name" content="軍資金を作る">
   <meta property="og:image" content="https://dokechi.github.io/gunshikin/assets/ogp.png">
@@ -96,16 +96,6 @@
       font-weight: 900;
       letter-spacing: -0.03em;
       text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .header-status {
-      padding: 7px 9px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      font-size: 10px;
-      font-weight: 800;
       white-space: nowrap;
     }
 
@@ -236,13 +226,6 @@
       font-weight: 900;
       line-height: 1.45;
       text-align: right;
-    }
-
-    .preview-note {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.6;
     }
 
     .section {
@@ -466,6 +449,31 @@
       color: var(--muted);
       font-size: 11px;
       line-height: 1.55;
+    }
+
+    .reward-context {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .reward-context div {
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .reward-context dt {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .reward-context dd {
+      margin: 5px 0 0;
+      font-size: 15px;
+      font-weight: 900;
     }
 
     .calculator {
@@ -759,6 +767,7 @@
 
       .check-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+      .reward-context { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .calculator { padding: 30px; }
 
       .calculator__inputs,
@@ -900,12 +909,10 @@
   </script>
 </head>
 <body>
-  <!-- Temporary public preview. The licensed full build will replace the image slots and advertising link. -->
   <!-- ZOROYA:HEADER -->
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="./" aria-label="軍資金を作る トップ">軍資金を作る</a>
-      <span class="header-status">公開プレビュー</span>
     </div>
   </header>
   <!-- /ZOROYA:HEADER -->
@@ -917,14 +924,13 @@
         <div class="hero__copy">
           <p class="eyebrow">クレジットカードで作る</p>
           <h1 id="hero-title"><span>カード増えるの、ダルい。</span><span>そこはそう。</span></h1>
-          <p class="hero__lead">だから年会費0円から見る。発行後の利用条件と、管理できる枚数も先に見る。</p>
-          <a class="button" href="#fee">年会費と獲得条件を見る →</a>
+          <p class="hero__lead">年会費0円から見る。次に、何をもらえて、どこで使えるか。管理できる枚数も見る。</p>
+          <a class="button" href="#fee">年会費と受取内容を見る →</a>
         </div>
         <div>
-          <!-- TODO: Formal build image slot. Real credit card and smartphone photo, with brand and personal data removed, 1200x1400. -->
-          <div class="hero-card" aria-label="年会費と利用条件を先に確認するイメージ">
+          <div class="hero-card" aria-label="年会費と特典の受取内容を確認">
             <strong class="hero-card__zero">0</strong>
-            <span class="hero-card__label">ANNUAL FEE<br>CHECK FIRST</span>
+            <span class="hero-card__label">年会費を確認<br>現金か、ポイントか</span>
           </div>
         </div>
       </div>
@@ -1005,19 +1011,23 @@
     <section class="section" aria-labelledby="calculator-title">
       <div class="section__inner">
         <h2 id="calculator-title">手間に合うか、数字にする。</h2>
-        <p class="section__intro">確認できた特典の表示額と、欲しい商品の仕入れ額を入力します。</p>
+        <p class="section__intro">受取内容と利用先を確認した特典の表示額と、商品1個の購入額・仕入れ額を入力します。</p>
+        <dl class="reward-context">
+          <div><dt>何でもらえる？</dt><dd>現金・ポイント・その他</dd></div>
+          <div><dt>どこで使える？</dt><dd>利用先・期限を確認</dd></div>
+        </dl>
         <form class="calculator" id="reward-form" novalidate>
           <div class="calculator__inputs">
             <div class="field">
-              <label for="reward-value">特典の表示額</label>
+              <label for="reward-value">特典の表示額（円相当）</label>
               <div class="field__control">
                 <input id="reward-value" name="reward-value" type="number" inputmode="numeric" min="0" step="1" autocomplete="off" aria-describedby="reward-help reward-error">
-                <span class="field__suffix">円分</span>
+                <span class="field__suffix">円相当</span>
               </div>
-              <p class="field__help" id="reward-help">申込先で確認できた最新の表示額</p>
+              <p class="field__help" id="reward-help">現金・ポイントなど、受取内容も確認</p>
             </div>
             <div class="field">
-              <label for="item-cost">商品1個の仕入れ額</label>
+              <label for="item-cost">商品1個の購入額・仕入れ額</label>
               <div class="field__control">
                 <input id="item-cost" name="item-cost" type="number" inputmode="numeric" min="1" step="1" autocomplete="off" aria-describedby="item-help reward-error">
                 <span class="field__suffix">円</span>
@@ -1078,7 +1088,7 @@
             <p>案件により、発行、一定額利用、期限内の利用など条件が異なります。対象外条件と付与時期も確認してください。</p>
           </details>
         </div>
-        <p class="notice">このページは公開プレビューです。現在の年会費表示は説明用の図版で、正式版では個人情報とカード番号を除いた実物写真へ差し替える予定です。特定のカードを推奨するものではなく、広告リンクは未設定です。金額、年会費、獲得条件は申込前にカード会社と広告掲載先の公式ページで確認してください。</p>
+        <p class="notice">特定のカードを推奨するものではありません。金額、年会費、獲得条件、特典の受取内容と利用先は、申込前にカード会社と掲載先の公式ページで確認してください。</p>
       </div>
     </section>
   </main>
@@ -1098,7 +1108,7 @@
         <a href="privacy.html">プライバシー</a>
         <a href="disclaimer.html">免責事項</a>
       </nav>
-      <p>© 2026 軍資金を作る<br>PR：アフィリエイト広告を利用予定</p>
+      <p>© 2026 軍資金を作る</p>
     </div>
   </footer>
   <!-- /ZOROYA:FOOTER -->
@@ -1175,8 +1185,8 @@
             <strong class="result__value">${yen.format(items)}個分</strong>
           </div>
           <div class="result__item">
-            <span class="result__label">残る金額の目安</span>
-            <strong class="result__value">${yen.format(remainder)}円</strong>
+            <span class="result__label">表示額の残り</span>
+            <strong class="result__value">${yen.format(remainder)}円相当</strong>
           </div>
         </div>
         <p class="result__note">特典が現金と同じように使えるとは限りません。交換先、期限、付与条件を確認してください。</p>
